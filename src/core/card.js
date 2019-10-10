@@ -11,9 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import { Slide } from 'material-auto-rotating-carousel';
 import ShowImage from './showimage';
-import ShowImage1 from './showimage1';
-import ShowImage2 from './showimage2';
-import ShowImage3 from './showimage3';
 import moment from 'moment';
 import {addItem, updateItem, removeItem} from './carthelpers';
 
@@ -45,8 +42,6 @@ const useStyles = makeStyles(theme => ({
 
 const CardProduct = ({
       product,
-      showViewImage= false,
-      showViewImageCarousel= true,
       showViewAddCart = true,
       showViewProductButton = true,
       showViewDescriptions = true,
@@ -115,41 +110,6 @@ const CardProduct = ({
         <Button size="small" color="primary" href={`/product/${product._id}`}>
           Details
        </Button>
-      )
-    )
-  }
-
-  const showViewImageProduct = (showViewImage) => {
-    return(
-      showViewImage && (
-        <div>
-          <ShowImage item={product} url="product"/>
-       </div>
-      )
-    )
-  }
-
-  const showViewImageProductCarousel = (showViewImageCarousel) => {
-    return(
-      showViewImageCarousel && (
-        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-           <div className="carousel-inner">
-              <div className="carousel-item active">
-                <ShowImage item={product} url="product"/>
-              </div>
-              <div className="carousel-item">
-                <ShowImage1 item={product} url="product"/>
-              </div>
-           </div>
-          <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span className="sr-only">Previous</span>
-         </a>
-         <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-           <span className="carousel-control-next-icon" aria-hidden="true"></span>
-           <span className="sr-only">Next</span>
-         </a>
-     </div>
       )
     )
   }
@@ -252,8 +212,7 @@ const CardProduct = ({
 return (
     <Grid>
       <Card className={classes.cardGrid}>
-         {showViewImageProduct(showViewImage)}
-         {showViewImageProductCarousel(showViewImageCarousel)}
+        <ShowImage item={product} url="product"/>
         <CardContent className={classes.textProduct}>
 
           <Typography gutterBottom variant="h5" component="p">

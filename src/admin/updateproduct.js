@@ -55,9 +55,6 @@ const UpdateProduct = ({match}) => {
     shipping: "",
     quantity: "",
     photo: "",
-    photo1: "",
-    photo2: "",
-    photo3: "",
     loading: false,
     error: "",
     createdProduct: "",
@@ -132,24 +129,6 @@ useEffect(() => {
    setValues({...values, [name]: value})
  };
 
- const handleChange1 = name => event => {
-   const value = name === "photo1" ? event.target.files[0] : event.target.value
-   formData.set(name, value)
-   setValues({...values, [name]: value})
- };
-
- const handleChange2 = name => event => {
-   const value = name === "photo2" ? event.target.files[0] : event.target.value
-   formData.set(name, value)
-   setValues({...values, [name]: value})
- };
-
- const handleChange3 = name => event => {
-   const value = name === "photo3" ? event.target.files[0] : event.target.value
-   formData.set(name, value)
-   setValues({...values, [name]: value})
- };
-
  const clickSubmit = event => {
   event.preventDefault()
   setValues({...values, error: "", loading:true})
@@ -164,9 +143,6 @@ useEffect(() => {
             schedule: "",
             description: "",
             photo: "",
-            photo1: "",
-            photo2: "",
-            photo3: "",
             price: "",
             quantity: "",
             loading: false,
@@ -185,7 +161,7 @@ useEffect(() => {
      <Grid container spacing={2}>
        <Grid item xs={12} >
        <Typography variant="body2" color="textSecondary" component="p">
-         Update Photo 1
+         Update Photo Product
        </Typography>
           <TextField
                autoComplete="photo"
@@ -199,57 +175,6 @@ useEffect(() => {
                type="file"
                accept="image/*" />
         </Grid>
-
-        <Grid item xs={12} >
-        <Typography variant="body2" color="textSecondary" component="p">
-          Update Photo 2
-        </Typography>
-           <TextField
-                autoComplete="photo1"
-                name="photo1"
-                variant="outlined"
-                fullWidth
-                id="photo1"
-                label=""
-                autoFocus
-                onChange={handleChange1("photo1")}
-                type="file"
-                accept="image/*" />
-         </Grid>
-
-         <Grid item xs={12} >
-         <Typography variant="body2" color="textSecondary" component="p">
-           Update Photo 3
-         </Typography>
-            <TextField
-                 autoComplete="photo2"
-                 name="photo2"
-                 variant="outlined"
-                 fullWidth
-                 id="photo2"
-                 label=""
-                 autoFocus
-                 onChange={handleChange2("photo2")}
-                 type="file"
-                 accept="image/*" />
-          </Grid>
-
-          <Grid item xs={12} >
-          <Typography variant="body2" color="textSecondary" component="p">
-            Update Photo 4
-          </Typography>
-             <TextField
-                  autoComplete="photo3"
-                  name="photo3"
-                  variant="outlined"
-                  fullWidth
-                  id="photo3"
-                  label=""
-                  autoFocus
-                  onChange={handleChange3("photo3")}
-                  type="file"
-                  accept="image/*" />
-           </Grid>
 
         <Grid item xs={12} >
           <h4>Update Product Name</h4>
