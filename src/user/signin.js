@@ -56,8 +56,8 @@ const SignIn = () => {
   const classes = useStyles();
 
   const [values, setValues] = useState({
-   email: "stefanusdody@yahoo.com",
-   password: "123456",
+   email: "",
+   password: "",
    error: "",
    loading: false,
    redirectToReferrer: false,

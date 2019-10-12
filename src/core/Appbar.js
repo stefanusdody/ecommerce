@@ -215,7 +215,7 @@ const PrimarySearchAppBar = () => {
         <Toolbar>
          <Link color="inherit"variant="body2" className={classes.link} href="/" >
            <Typography className={classes.title} variant="h6" noWrap>
-             S.N.E.A.K.E.R.S
+             A.N.D.T.R.I.P
            </Typography>
         </Link>
           <div className={classes.grow} />
