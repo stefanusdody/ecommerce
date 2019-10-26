@@ -377,7 +377,7 @@ const Shop = () => {
        </Typography>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (
-            <Grid key={i} item xs={12} sm={4} md={3}>
+            <Grid key={i} item xs={12} sm={12} md={12}>
               <CardProduct
                product={product}
                showViewImage= {true}
