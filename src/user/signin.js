@@ -157,9 +157,6 @@ const SignIn = () => {
         return <Redirect to="/user/dashboard" />;
       }
     }
-    if(isAuthenticated()) {
-
-    }
   };
 
 

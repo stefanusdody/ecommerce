@@ -239,7 +239,8 @@ const PrimarySearchAppBar = () => {
             </IconButton>
 
 
-              <IconButton aria-label="show 11 new notifications" color="inherit">          
+              <IconButton aria-label="show 11 new notifications" color="inherit">
+
                 <Link color="inherit"variant="body2" className={classes.link} href="/paymentconfirmation" >
                   <Typography className={classes.title} component="p">
                     Payment Confirmation
