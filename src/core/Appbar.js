@@ -222,7 +222,7 @@ const PrimarySearchAppBar = () => {
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
                <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
-                  <ShoppingCartIcon />
+                  
                </Badge>
                <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
                  <Typography className={classes.title} component="p">
