@@ -221,18 +221,16 @@ const PrimarySearchAppBar = () => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-               <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
-                  
-               </Badge>
+             <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
                <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
                  <Typography className={classes.title} component="p">
                   Cart
                  </Typography>
-              </Link>
+               </Link>
+             </Badge>
             </IconButton>
 
             <IconButton aria-label="show 4 new mails" color="inherit">
-                <StorefrontIcon />
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
                    Shop
@@ -242,7 +240,6 @@ const PrimarySearchAppBar = () => {
 
             <MenuItem>
               <IconButton aria-label="show 11 new notifications" color="inherit">
-                  <PaymentIcon />
               </IconButton>
                 <Link color="inherit"variant="body2" className={classes.link} href="/paymentconfirmation" >
                   <Typography className={classes.title} component="p">
@@ -253,7 +250,6 @@ const PrimarySearchAppBar = () => {
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
               <IconButton aria-label="show 17 new notifications" color="inherit">
-                  <DashboardIcon />
                 <Link color="inherit"variant="body2" className={classes.link} href="/user/dashboard" >
                   <Typography className={classes.title} component="p">
                    Dashboard
@@ -264,7 +260,6 @@ const PrimarySearchAppBar = () => {
 
             {isAuthenticated() && isAuthenticated().user.role === 1 && (
               <IconButton aria-label="show 17 new notifications" color="inherit">
-                  <DashboardIcon />
                 <Link color="inherit"variant="body2" className={classes.link} href="/admin/dashboard" >
                   <Typography className={classes.title} component="p">
                     Dashboard
@@ -285,7 +280,6 @@ const PrimarySearchAppBar = () => {
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  <AccountCircle />
                 <Link color="inherit"variant="body2" className={classes.link} href="/signin" >
                    <Typography className={classes.title} component="p">
                     Sign In
@@ -301,7 +295,6 @@ const PrimarySearchAppBar = () => {
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  <CreateIcon />
                   <Link color="inherit"variant="body2" className={classes.link} href="/signup" >
                    <Typography className={classes.title} component="p">
                      Sign Up
