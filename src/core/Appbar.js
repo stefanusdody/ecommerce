@@ -313,7 +313,6 @@ const PrimarySearchAppBar = () => {
                 href="/"
                 onClick={() => signout(() => { window.history.pushState(null, null,"/")})}
                 >
-                   <ExitToAppIcon />
                    <Typography className={classes.title} component="p">
                     Sign Out
                    </Typography>
