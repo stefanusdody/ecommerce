@@ -225,10 +225,10 @@ return (
              {product.schedule}
           </Typography>
           <br/>
+          {showViewPriceList(showViewPrice)}
+          <br/>
            {showViewCat(showViewCategories)}
            {cartShowCartUpdateOptions(cartUpdate)}
-           <br/>
-           {showViewPriceList(showViewPrice)}
            <br/>
            {showViewDesc(showViewDescriptions)}
            <br/>
