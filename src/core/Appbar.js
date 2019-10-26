@@ -238,7 +238,7 @@ const PrimarySearchAppBar = () => {
               </Link>
             </IconButton>
 
-            <MenuItem>
+
               <IconButton aria-label="show 11 new notifications" color="inherit">
               </IconButton>
                 <Link color="inherit"variant="body2" className={classes.link} href="/paymentconfirmation" >
@@ -246,7 +246,7 @@ const PrimarySearchAppBar = () => {
                     Payment Confirmation
                   </Typography>
                 </Link>
-            </MenuItem>
+    
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
               <IconButton aria-label="show 17 new notifications" color="inherit">
