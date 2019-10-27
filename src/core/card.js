@@ -210,6 +210,7 @@ return (
           <Typography variant="body2" color="textSecondary" component="p">
              {product.schedule}
           </Typography>
+          <br/>
           <Typography variant="body2" color="textSecondary" component="p">
              Price :
           </Typography>
@@ -222,7 +223,6 @@ return (
            {cartShowCartUpdateOptions(cartUpdate)}
            <br/>
            {showViewDesc(showViewDescriptions)}
-
            <br/>
            {showAddProduct(showAddedProduct)}
            {showRemoveButton(showRemoveProductButton)}
