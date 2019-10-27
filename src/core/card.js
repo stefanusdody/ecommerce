@@ -46,7 +46,6 @@ const CardProduct = ({
       showViewProductButton = true,
       showViewDescriptions = true,
       showViewCategories = true,
-      showViewPrice= true,
       showAddedProduct= true,
       cartUpdate= false,
       showRemoveProductButton=false
@@ -59,20 +58,7 @@ const CardProduct = ({
     open: true
   })
 
-  const showViewPriceList = (showViewPrice) => {
-    return(
-      showViewPrice && (
-      <div>
-        <Typography variant="body2" color="textSecondary" component="p">
-           Price :
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-           Rp {product.price} / person
-        </Typography>
-      </div>
-      )
-    )
-  }
+
 
   const showViewCat = (showViewCategories) => {
     return(
@@ -224,9 +210,12 @@ return (
           <Typography variant="body2" color="textSecondary" component="p">
              {product.schedule}
           </Typography>
-          <br/>
-          {showViewPriceList(showViewPrice)}
-          <br/>
+          <Typography variant="body2" color="textSecondary" component="p">
+             Price :
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+             Rp {product.price} / person
+          </Typography>
           <br/>
            {showStock(product.quantity)}
            {showViewCat(showViewCategories)}
