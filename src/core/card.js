@@ -227,15 +227,15 @@ return (
           <br/>
           {showViewPriceList(showViewPrice)}
           <br/>
+          <br/>
+           {showStock(product.quantity)}
            {showViewCat(showViewCategories)}
            {cartShowCartUpdateOptions(cartUpdate)}
            <br/>
            {showViewDesc(showViewDescriptions)}
-           <br/>
-           {showStock(product.quantity)}
+
            <br/>
            {showAddProduct(showAddedProduct)}
-
            {showRemoveButton(showRemoveProductButton)}
         </CardContent>
         <CardActions>
