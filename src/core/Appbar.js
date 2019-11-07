@@ -233,7 +233,7 @@ const PrimarySearchAppBar = () => {
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
-                   Shop
+                   Trip
                   </Typography>
               </Link>
             </IconButton>
