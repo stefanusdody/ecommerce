@@ -111,7 +111,7 @@ const PrimarySearchAppBar = () => {
             <StorefrontIcon />
         </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-             <ListItemText>Shop</ListItemText>
+             <ListItemText>Trip</ListItemText>
           </Link>
       </MenuItem>
 
