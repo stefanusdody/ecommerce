@@ -219,6 +219,7 @@ return (
           </Typography>
           <br/>
            {showStock(product.quantity)}
+           <br/>
            {showViewCat(showViewCategories)}
            {cartShowCartUpdateOptions(cartUpdate)}
            <br/>

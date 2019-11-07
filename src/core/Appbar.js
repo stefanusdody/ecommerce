@@ -17,6 +17,7 @@ import PaymentIcon from '@material-ui/icons/Payment';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
+import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 import ListItemText from '@material-ui/core/ListItemText';
 import {signout, isAuthenticated } from '../auth/index';
 import {itemTotal} from './carthelpers';
@@ -206,6 +207,20 @@ const PrimarySearchAppBar = () => {
              </Link>
           </MenuItem>
         )}
+
+        <MenuItem>
+            <IconButton aria-label="notifications" color="inherit">
+                <SystemUpdateAltIcon />
+            </IconButton>
+            <Link
+              color="inherit"
+              variant="body2"
+              className={classes.link}
+              href="/tech-stack"
+              >
+              <ListItemText>Tech Stack</ListItemText>
+             </Link>
+          </MenuItem>
     </Menu>
   );
 
@@ -304,6 +319,14 @@ const PrimarySearchAppBar = () => {
                 </IconButton>
               </div>
              )}
+
+             <IconButton aria-label="Tech Stack" color="inherit">
+               <Link color="inherit"variant="body2" className={classes.link} href="/tech-stack" >
+                   <Typography className={classes.title} component="p">
+                    Tech Stack
+                   </Typography>
+               </Link>
+             </IconButton>
 
 
              {isAuthenticated() && (
