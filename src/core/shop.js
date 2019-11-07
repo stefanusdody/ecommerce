@@ -373,7 +373,7 @@ const Shop = () => {
          <SearchItem/>
        </div>
        <Typography className={classes.card} gutterBottom variant="h5" component="h1">
-           Please Select Trip
+           Please Select Your Trip
        </Typography>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (

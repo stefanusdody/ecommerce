@@ -140,7 +140,7 @@ const SearchItem = () => {
         <TextField
          fullWidth
          type="search"
-         label="Search Product"
+         label="Search Your Favourite Trip"
          className="form-control"
          onChange={handleChange('search')}
          placeholder="Search"
