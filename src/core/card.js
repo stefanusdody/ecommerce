@@ -46,7 +46,6 @@ const CardProduct = ({
       showViewProductButton = true,
       showViewDescriptions = true,
       showViewCategories = true,
-      showAddedProduct= true,
       cartUpdate= false,
       showRemoveProductButton=false
     }) => {
@@ -59,10 +58,9 @@ const CardProduct = ({
   })
 
 
-
-  const showViewCat = (showViewCategories) => {
+  const showViewDesc = (showViewDescriptions) => {
     return(
-      showViewCategories && (
+      showViewDescriptions && (
         <div>
         <Typography variant="body2" color="textSecondary" component="p">
            Category :
@@ -70,20 +68,16 @@ const CardProduct = ({
         <Typography variant="body2" color="textSecondary" component="p">
            {product.category && product.category.name}
         </Typography>
-        </div>
-      )
-    )
-  }
-
-  const showViewDesc = (showViewDescriptions) => {
-    return(
-      showViewDescriptions && (
-        <div>
+        <br/>
         <Typography gutterBottom variant="body2" color="textSecondary" component="p" >
            Description Product :
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-           {product.description.substring(0,1000)}}
+           {product.description.substring(0,1000)}
+        </Typography>
+        <br/>
+        <Typography variant="body2" color="textSecondary" component="p">
+           Added on {moment(product.createdAt).fromNow()}
         </Typography>
         </div>
       )
@@ -122,19 +116,8 @@ const CardProduct = ({
     );
   };
 
-  const showAddProduct = (showAddedProduct) => {
-    return(
-      showAddedProduct && (
-        <div>
-            <Typography variant="body2" color="textSecondary" component="p">
-               Added on {moment(product.createdAt).fromNow()}
-            </Typography>
-        </div>
-      )
-    )
-  }
 
-  const showStock = (quantity) => {
+const showStock = (quantity) => {
     return quantity > 0 ?
       <Typography variant="body2" color="textSecondary" component="p">
           Seat Available : {product.quantity} persons
@@ -146,7 +129,7 @@ const CardProduct = ({
 
   }
 
-  const showRemoveButton = (showRemoveProductButton) => {
+const showRemoveButton = (showRemoveProductButton) => {
     return(
       showRemoveProductButton && (
         <Button
@@ -165,7 +148,7 @@ const CardProduct = ({
     );
   };
 
-  const cartShowCartUpdateOptions = (cartUpdate) => {
+const cartShowCartUpdateOptions = (cartUpdate) => {
     return(
       cartUpdate && (
         <div className="input-group mb-3">
@@ -200,7 +183,6 @@ return (
       <Card className={classes.cardGrid}>
         <ShowImage item={product} url="product"/>
         <CardContent className={classes.textProduct}>
-
           <Typography gutterBottom variant="h5" component="p">
             {product.name}
           </Typography>
@@ -219,13 +201,11 @@ return (
           </Typography>
           <br/>
            {showStock(product.quantity)}
-           <br/>
-           {showViewCat(showViewCategories)}
+
            {cartShowCartUpdateOptions(cartUpdate)}
            <br/>
            {showViewDesc(showViewDescriptions)}
            <br/>
-           {showAddProduct(showAddedProduct)}
            {showRemoveButton(showRemoveProductButton)}
         </CardContent>
         <CardActions>

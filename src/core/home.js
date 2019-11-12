@@ -74,8 +74,6 @@ const Home = () => {
                   showViewImage= {true}
                   showViewImageCarousel={false}
                   showViewDescriptions={false}
-                  showViewCategories={false}
-                  showAddedProduct={false}
                   />
              </Grid>
            ))}
