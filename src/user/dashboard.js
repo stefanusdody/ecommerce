@@ -18,7 +18,7 @@ import List from '@material-ui/core/List';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LabelIcon from '@material-ui/icons/Label';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -140,7 +140,7 @@ const Dashboard = () => {
       <List>
         {['Trip Schedule'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon><StorefrontIcon /></ListItemIcon>
+            <ListItemIcon><FlightTakeoffIcon /></ListItemIcon>
             <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
               <ListItemText primary={text} />
             </Link>
