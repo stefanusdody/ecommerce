@@ -1,42 +1,54 @@
 import React, {useState} from 'react';
-import {Redirect} from "react-router-dom";
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { blue } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+
+import {Redirect} from "react-router-dom";
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import { Slide } from 'material-auto-rotating-carousel';
 import ShowImage from './showimage';
 import moment from 'moment';
 import {addItem, updateItem, removeItem} from './carthelpers';
+import {isAuthenticated} from '../auth'
 
 
 const useStyles = makeStyles(theme => ({
-  cardGrid: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+  card: {
+    maxWidth: "100%",
   },
-  cardContent: {
-    textAlign: "center",
-    paddingTop: theme.spacing(0),
-    paddingBottom: theme.spacing(-10),
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
   },
-  text: {
-    textAlign: "Left",
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
   },
-  textProduct: {
-    textAlign: "center",
+  expandOpen: {
+    transform: 'rotate(180deg)',
   },
-  margin: {
-    margin: theme.spacing(3),
-  },
-  padding: {
-    padding: theme.spacing(0, 2),
+  avatar: {
+    backgroundColor: blue[500],
   },
 }));
 
@@ -56,43 +68,11 @@ const CardProduct = ({
   const [state, setState] = useState({
     open: true
   })
+  const [expanded, setExpanded] = React.useState(false);
 
-
-  const showViewDesc = (showViewDescriptions) => {
-    return(
-      showViewDescriptions && (
-        <div>
-        <Typography variant="body2" color="textSecondary" component="p">
-           Category :
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-           {product.category && product.category.name}
-        </Typography>
-        <br/>
-        <Typography gutterBottom variant="body2" color="textSecondary" component="p" >
-           Description Product :
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-           {product.description.substring(0,1000)}
-        </Typography>
-        <br/>
-        <Typography variant="body2" color="textSecondary" component="p">
-           Added on {moment(product.createdAt).fromNow()}
-        </Typography>
-        </div>
-      )
-    )
-  }
-
-  const showViewButton = (showViewProductButton) => {
-    return(
-      showViewProductButton && (
-        <Button size="small" color="primary" href={`/product/${product._id}`}>
-          Details
-       </Button>
-      )
-    )
-  }
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const addToCart = () => {
     addItem(product, () => {
@@ -110,7 +90,7 @@ const CardProduct = ({
     return(
       showViewAddCart && (
         <Button fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
-          Buy
+          Booking Now
         </Button>
       )
     );
@@ -136,7 +116,6 @@ const showRemoveButton = (showRemoveProductButton) => {
           type="submit"
           fullWidth
           variant="contained"
-          fullWidth
           onClick={() => removeItem(product._id)}
           size="small"
           color="secondary"
@@ -178,40 +157,79 @@ const cartShowCartUpdateOptions = (cartUpdate) => {
     }
   }
 
+  const showNext = () => {
+    return isAuthenticated() ? (
+      <IconButton
+        className={clsx(classes.expand, {
+          [classes.expandOpen]: expanded,
+        })}
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
+    ):(
+      <Button
+        type="submit"
+        fullWidth
+        size="small"
+        href="/signin"
+        color="secondary">
+        Sign In to See
+      </Button>
+    )
+  }
+
 return (
     <Grid>
-      <Card className={classes.cardGrid}>
-        <ShowImage item={product} url="product"/>
-        <CardContent className={classes.textProduct}>
-          <Typography gutterBottom variant="h5" component="p">
+    <Card className={classes.card}>
+    <CardHeader
+      avatar={
+        <Avatar aria-label="recipe" className={classes.avatar}>
+          <FlightTakeoffIcon/>
+        </Avatar>
+      }
+      title={product.name}
+      subheader={product.schedule}
+    />
+    <ShowImage item={product} url="product"/>
+     <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {showStock(product.quantity)}
+        </Typography>
+        {cartShowCartUpdateOptions(cartUpdate)}
+        <br/>
+        {showRemoveButton(showRemoveProductButton)}
+      </CardContent>
+      <CardActions disableSpacing>
+          {showAddToChartButton(showViewAddCart)}
+          {showNext()}
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>Location:</Typography>
+          <Typography paragraph>
             {product.name}
           </Typography>
-          <Typography gutterBottom variant="body2" color="textSecondary" component="p" >
-             Schedule :
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-             {product.schedule}
-          </Typography>
-          <br/>
-          <Typography variant="body2" color="textSecondary" component="p">
-             Price :
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-             Rp {product.price} / person
-          </Typography>
-          <br/>
-           {showStock(product.quantity)}
 
-           {cartShowCartUpdateOptions(cartUpdate)}
-           <br/>
-           {showViewDesc(showViewDescriptions)}
-           <br/>
-           {showRemoveButton(showRemoveProductButton)}
+          <Typography paragraph>Price:</Typography>
+          <Typography paragraph>
+            Rp {product.price} / person
+          </Typography>
+
+          <Typography paragraph>
+             Description:
+          </Typography>
+          <Typography paragraph>
+             {product.description.substring(0,1000)}
+          </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">
+            Added on {moment(product.createdAt).fromNow()}
+          </Typography>
         </CardContent>
-        <CardActions>
-            {showViewButton(showViewProductButton)}
-            {showAddToChartButton(showViewAddCart)}
-        </CardActions>
+      </Collapse>
       </Card>
     </Grid>
     );

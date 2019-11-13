@@ -14,7 +14,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import PaymentIcon from '@material-ui/icons/Payment';
-import StorefrontIcon from '@material-ui/icons/Storefront';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
@@ -87,7 +87,7 @@ const PrimarySearchAppBar = () => {
     >
 
       <MenuItem>
-         <IconButton aria-label="show 4 new mails" color="inherit">
+         <IconButton aria-label="show Home" color="inherit">
             <HomeIcon />
          </IconButton>
          <Link color="inherit"variant="body2" className={classes.link} href="/" >
@@ -96,7 +96,7 @@ const PrimarySearchAppBar = () => {
       </MenuItem>
 
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+        <IconButton aria-label="show Cart" color="inherit">
           <Badge color="primary" badgeContent={itemTotal()} className={classes.margin}>
             <ShoppingCartIcon />
           </Badge>
@@ -108,11 +108,11 @@ const PrimarySearchAppBar = () => {
 
 
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-            <StorefrontIcon />
+        <IconButton aria-label="show Trip Destination" color="inherit">
+            <FlightTakeoffIcon />
         </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-             <ListItemText>Trip</ListItemText>
+             <ListItemText>Trip Destination</ListItemText>
           </Link>
       </MenuItem>
 
@@ -228,14 +228,24 @@ const PrimarySearchAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="fixed" color="default">
         <Toolbar>
-         <Link color="inherit"variant="body2" className={classes.link} href="/" >
            <Typography className={classes.title} variant="h6" noWrap>
              TripApp
            </Typography>
-        </Link>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+
+           <IconButton aria-label="show Home" color="inherit">
+            <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
+              <Link color="inherit"variant="body2" className={classes.link} href="/" >
+                <Typography className={classes.title} component="p">
+                 Home
+                </Typography>
+              </Link>
+            </Badge>
+           </IconButton>
+
+
+            <IconButton aria-label="show Cart" color="inherit">
              <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
                <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
                  <Typography className={classes.title} component="p">
@@ -245,16 +255,16 @@ const PrimarySearchAppBar = () => {
              </Badge>
             </IconButton>
 
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton aria-label="show Trip Destination" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
-                   Trip
+                   Trip Destination
                   </Typography>
               </Link>
             </IconButton>
 
 
-              <IconButton aria-label="show 11 new notifications" color="inherit">
+              <IconButton aria-label="show Payment Confirmation" color="inherit">
 
                 <Link color="inherit"variant="body2" className={classes.link} href="/paymentconfirmation" >
                   <Typography className={classes.title} component="p">
@@ -265,7 +275,7 @@ const PrimarySearchAppBar = () => {
 
 
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
-              <IconButton aria-label="show 17 new notifications" color="inherit">
+              <IconButton aria-label="show Dashboard" color="inherit">
                 <Link color="inherit"variant="body2" className={classes.link} href="/user/dashboard" >
                   <Typography className={classes.title} component="p">
                    Dashboard
@@ -275,7 +285,7 @@ const PrimarySearchAppBar = () => {
             )}
 
             {isAuthenticated() && isAuthenticated().user.role === 1 && (
-              <IconButton aria-label="show 17 new notifications" color="inherit">
+              <IconButton aria-label="show Dashboard" color="inherit">
                 <Link color="inherit"variant="body2" className={classes.link} href="/admin/dashboard" >
                   <Typography className={classes.title} component="p">
                     Dashboard
