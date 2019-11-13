@@ -138,7 +138,7 @@ const Dashboard = () => {
     return (
     <div>
       <List>
-        {['Shop'].map((text, index) => (
+        {['Trip Schedule'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon><StorefrontIcon /></ListItemIcon>
             <Link color="inherit"variant="body2" className={classes.link} href="/shop" >

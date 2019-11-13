@@ -108,11 +108,11 @@ const PrimarySearchAppBar = () => {
 
 
       <MenuItem>
-        <IconButton aria-label="show Trip Destination" color="inherit">
+        <IconButton aria-label="show Trip Schedule" color="inherit">
             <FlightTakeoffIcon />
         </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-             <ListItemText>Trip Destination</ListItemText>
+             <ListItemText>Trip Schedule</ListItemText>
           </Link>
       </MenuItem>
 
@@ -255,10 +255,10 @@ const PrimarySearchAppBar = () => {
              </Badge>
             </IconButton>
 
-            <IconButton aria-label="show Trip Destination" color="inherit">
+            <IconButton aria-label="show Trip Schedule" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
-                   Trip Destination
+                   Trip Schedule
                   </Typography>
               </Link>
             </IconButton>
