@@ -13,7 +13,6 @@ import ManagePayments from "./admin/managepayments";
 import Orders from "./admin/orders";
 import PaymentConfirmation from "./core/paymentconfirmation";
 import PrivateRoute from "./auth/privateroute";
-import Product from "./core/product";
 import Profile from "./user/profile";
 import PurchaseHistory from "./user/purchasehistory";
 import PrimarySearchAppBar from "./core/Appbar"
@@ -37,7 +36,6 @@ const Routes = () => {
         <Route path="/tech-stack" exact component={TechStack}/>
         <Route path="/reviewcart" exact component={Review}/>
         <Route path="/checkout" exact component={CheckOut}/>
-        <Route path="/product/:productId" exact component={Product}/>
         <PrivateRoute
                path="/paymentconfirmation"
                exact

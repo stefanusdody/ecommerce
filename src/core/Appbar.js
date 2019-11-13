@@ -235,7 +235,7 @@ const PrimarySearchAppBar = () => {
           <div className={classes.sectionDesktop}>
 
            <IconButton aria-label="show Home" color="inherit">
-            <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
+            <Badge className={classes.margin} color="primary">
               <Link color="inherit"variant="body2" className={classes.link} href="/" >
                 <Typography className={classes.title} component="p">
                  Home
