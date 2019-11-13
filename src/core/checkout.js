@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import {isAuthenticated} from '../auth';
 import {emptyCart} from "./carthelpers"
-import {processPayment, createOrder} from "./apicore";
+import {getBraintreeClientToken, processPayment, createOrder} from "./apicore";
 import DropIn from "braintree-web-drop-in-react"
 
 const useStyles = makeStyles(theme => ({
@@ -150,6 +150,7 @@ const showNext = () => {
   //braintree
   const showDropIn = () => (
   <div>
+    {data.clientToken !== null && products.length > 0 ? (
     <Grid container spacing={4}>
      <Grid item xs={12} sm={12} md={12}>
      <div>
@@ -242,6 +243,9 @@ const showNext = () => {
     </div>
   </Grid>
      <Grid item xs={12} sm={12} md={12}>
+       <DropIn
+          options={{ authorization: data.clientToken }}
+          onInstance={instance => (data.instance = instance)}/>
        <Button
         type="submit"
         fullWidth
@@ -255,6 +259,7 @@ const showNext = () => {
         </Button>
     </Grid>
   </Grid>
+    ) : null}
  </div>
 )
 
@@ -272,6 +277,7 @@ const showSuccess = success => (
 
 return (
     <React.Fragment>
+
          <Grid  container spacing={4}>
              <Grid item xs={12} sm={12} md={12}>
              {showSuccess(data.success)}
