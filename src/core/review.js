@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import CheckOut from './checkout';
 import Container from '@material-ui/core/Container';
-import {getCart } from "./carthelpers";
+import {getCart} from "./carthelpers";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -54,6 +55,17 @@ const Review = () => {
       </div>
       <br/>
        {goBack()}
+      <br/>
+       <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        size="small"
+        color="primary"
+        href="/checkout"
+        >
+         Next to Check Out
+       </Button>
     </Container>
   )
 }
