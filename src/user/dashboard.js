@@ -245,24 +245,6 @@ const Dashboard = () => {
         </List>
 
         <List>
-          {['08902012974920'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <PhoneIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-
-        <List>
-          {['Komplek Pura Melati Indah Blok E no. 6 tahap 2, Pondok Gede - Bekasi'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <MapIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-
-        <List>
           {[''].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <LabelIcon /> : <MailIcon />}</ListItemIcon>
