@@ -55,17 +55,6 @@ const Review = () => {
       </div>
       <br/>
        {goBack()}
-      <br/>
-       <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        size="small"
-        color="primary"
-        href="/checkout"
-        >
-         Next to Check Out
-       </Button>
     </Container>
   )
 }
