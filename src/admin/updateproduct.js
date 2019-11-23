@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import {isAuthenticated } from '../auth';
 import { getProduct, getCategories, updateProduct} from './apiadmin';
 
 
@@ -61,8 +60,6 @@ const UpdateProduct = ({match}) => {
     redirectToProfile: false,
     formData: ""
   });
-
-  const { user, token } = isAuthenticated();
 
   const {
         name,
@@ -132,7 +129,7 @@ useEffect(() => {
  const clickSubmit = event => {
   event.preventDefault()
   setValues({...values, error: "", loading:true})
-  updateProduct(match.params.productId, user._id, token, formData)
+  updateProduct(match.params.productId, formData)
   .then(data => {
      if(data.error) {
        setValues({...values, error: data.error})

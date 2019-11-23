@@ -87,13 +87,13 @@ const Layout = ({item, url}) => {
            <Grid item md={6}>
              <div className={classes.mainFeaturedPostContent}>
                <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                Happy HoliDays
+                Daily Catering
                </Typography>
                <Typography variant="h5" color="inherit" paragraph>
-                 Choice You Favourite Holidays Destinations
+                 Choice You Favourite Menu Everyday
                </Typography>
                <Button variant="outlined" color="inherit" href="/shop" className={classes.button}>
-                  Cek Trip Schedules
+                  Cek Menu
                </Button>
              </div>
            </Grid>

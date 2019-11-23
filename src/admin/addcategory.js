@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {isAuthenticated } from '../auth';
 import {createCategory} from './apiadmin'
 
 
@@ -46,7 +45,6 @@ const AddCategory = () => {
   const [success, setSuccess] = useState('')
 
   //destructure user and token from localstorage
-  const {user, token} = isAuthenticated()
 
   const handleChange = (e) => {
     setError('')
@@ -58,7 +56,7 @@ const AddCategory = () => {
     setError('')
     setSuccess(false)
     // make request to api to create category
-    createCategory(user._id, token, {name})
+    createCategory({name})
      .then(data => {
        if(data.error) {
          setError(true)

@@ -1,13 +1,12 @@
 import {API} from "../config";
 import queryString from 'query-string';
 
-export const createCategory = (userId, token, category) => {
-  return fetch(`${API}/category/create/${userId}`, {
+export const createCategory = (category) => {
+  return fetch(`${API}/category/create`, {
      method: "POST",
      headers: {
        Accept: 'application/json',
        "Content-Type": 'application/json',
-       Authorization: `Bearer ${token}`
      },
      body: JSON.stringify(category)
   })
@@ -20,12 +19,11 @@ export const createCategory = (userId, token, category) => {
 };
 
 
-export const createProduct = (userId, token, product) => {
-  return fetch(`${API}/product/create/${userId}`, {
+export const createProduct = (product) => {
+  return fetch(`${API}/product/create`, {
      method: "POST",
      headers: {
        Accept: 'application/json',
-       Authorization: `Bearer ${token}`
      },
      body: product
   })
@@ -178,12 +176,11 @@ export const deletePayment = (paymentId, userId, token) => {
 };
 
 //update single product
-export const updateProduct = (productId, userId, token, product) => {
-  return fetch(`${API}/product/${productId}/${userId}`, {
+export const updateProduct = (productId, product) => {
+  return fetch(`${API}/product/${productId}`, {
      method: "PUT",
      headers: {
        Accept: 'application/json',
-       Authorization: `Bearer ${token}`
        },
        body: product
      })

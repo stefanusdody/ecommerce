@@ -15,7 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 
 import {Redirect} from "react-router-dom";
 import Button from '@material-ui/core/Button';
@@ -90,7 +90,7 @@ const CardProduct = ({
     return(
       showViewAddCart && (
         <Button fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
-          Booking Now
+          Pesan
         </Button>
       )
     );
@@ -100,7 +100,7 @@ const CardProduct = ({
 const showStock = (quantity) => {
     return quantity > 0 ?
       <Typography variant="body2" color="textSecondary" component="p">
-          Seat Available : {product.quantity} persons
+          Porsi Untuk : {product.quantity} Orang
       </Typography>
       :
       <Typography variant="body2" color="textSecondary" component="p">
@@ -187,7 +187,7 @@ return (
     <CardHeader
       avatar={
         <Avatar aria-label="recipe" className={classes.avatar}>
-          <FlightTakeoffIcon/>
+          <RestaurantMenuIcon/>
         </Avatar>
       }
       title={product.name}
@@ -208,18 +208,23 @@ return (
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Location:</Typography>
+          <Typography paragraph>Menu:</Typography>
           <Typography paragraph>
             {product.name}
           </Typography>
 
-          <Typography paragraph>Price:</Typography>
+          <Typography paragraph>Jadwal Menu:</Typography>
           <Typography paragraph>
-            Rp {product.price} / person
+            {product.schedule}
+          </Typography>
+
+          <Typography paragraph>Harga:</Typography>
+          <Typography paragraph>
+            Rp {product.price} / box
           </Typography>
 
           <Typography paragraph>
-             Description:
+             Deskripsi Menu:
           </Typography>
           <Typography paragraph>
              {product.description.substring(0,1000)}

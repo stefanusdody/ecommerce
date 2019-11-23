@@ -335,7 +335,7 @@ const Shop = () => {
           </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/" >
             <Typography className={classes.title} variant="h6" noWrap>
-              TripApp
+              Daily Catering
             </Typography>
          </Link>
         </Toolbar>
@@ -377,7 +377,7 @@ const Shop = () => {
        </Typography>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (
-            <Grid key={i} item xs={12} sm={4} md={4}>
+            <Grid key={i} item xs={12} sm={3} md={3}>
               <CardProduct
                product={product}
                showViewImage= {true}

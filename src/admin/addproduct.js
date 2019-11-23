@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import {isAuthenticated } from '../auth';
 import {createProduct, getCategories} from './apiadmin';
 
 
@@ -61,7 +60,6 @@ const AddProduct = () => {
     formData: ""
   });
 
-  const { user, token } = isAuthenticated();
 
   const {
         name,
@@ -109,7 +107,7 @@ useEffect(() => {
  const clickSubmit = event => {
   event.preventDefault()
   setValues({...values, error: "", loading:true})
-  createProduct(user._id, token, formData)
+  createProduct(formData)
   .then(data => {
      if(data.error) {
        setValues({...values, error: data.error})

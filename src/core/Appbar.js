@@ -14,7 +14,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import PaymentIcon from '@material-ui/icons/Payment';
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
@@ -109,10 +109,10 @@ const PrimarySearchAppBar = () => {
 
       <MenuItem>
         <IconButton aria-label="show Trip Schedule" color="inherit">
-            <FlightTakeoffIcon />
+            <RestaurantMenuIcon  />
         </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-             <ListItemText>Trip Schedule</ListItemText>
+             <ListItemText>Menus</ListItemText>
           </Link>
       </MenuItem>
 
@@ -229,7 +229,7 @@ const PrimarySearchAppBar = () => {
       <AppBar position="fixed" color="default">
         <Toolbar>
            <Typography className={classes.title} variant="h6" noWrap>
-             TripApp
+             Daily Catering
            </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
@@ -258,7 +258,7 @@ const PrimarySearchAppBar = () => {
             <IconButton aria-label="show Trip Schedule" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
-                   Trip Schedule
+                   Menus
                   </Typography>
               </Link>
             </IconButton>
