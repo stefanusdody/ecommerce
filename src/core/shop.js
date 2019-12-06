@@ -135,6 +135,10 @@ const useStyles = makeStyles(theme => ({
       width: 200,
     },
   },
+  img: {
+    width: "20%",
+    height: "30%",
+  },
 }));
 
 
@@ -311,9 +315,9 @@ const Shop = () => {
             <MenuIcon />
           </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/" >
-            <Typography className={classes.title} variant="h6" noWrap>
-              Tukuada.com
-            </Typography>
+          <div>
+             <img src={require('../assets/logo.png')} className={classes.img} alt=""/>
+          </div>
          </Link>
         </Toolbar>
       </AppBar>
