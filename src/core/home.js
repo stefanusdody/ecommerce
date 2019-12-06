@@ -98,13 +98,10 @@ const Home = () => {
           <Grid item xs={12} sm={12} md={12}>
            <Container>
             <Typography paragraph>
-             Belanja Online Fashion dan Aksesoris Gadget Terbaru
+             Belanja Online Fashion Sporty Terbaru
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-             Tukuada.com adalah toko online yang menyediakan fashion dan aksesoris untuk melengkapi gaya sporty kamu. Beragam design Fashion seperti T-shirt dan Hoddie dan juga aksesoris Handphone kamu seperti Case Handphone dengan bertemakan Sporty.
-            </Typography>
-            <br/>
-            <Typography variant="body2" color="textSecondary" component="p">
+             Tukuada.com adalah toko online yang menyediakan fashion untuk melengkapi gaya sporty kamu. Beragam design Fashion seperti T-shirt dan Hoddie dengan bertemakan Sporty.
              Teruntuk kamu yang selalu ingin membuat kesan SPORTY melalui penampilan, Tukuada.com adalah pilihan tepat dan memiliki semua yang Anda butuhkan.
             </Typography>
           </Container>
