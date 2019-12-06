@@ -26,6 +26,7 @@ import SearchItem from './search';
 import CheckBoxes from "./checkbox";
 import PriceBoxes from "./pricebox";
 import CardProduct from "./card";
+import SendIcon from '@material-ui/icons/Send';
 import { signout } from '../auth';
 import { getCategories, getFilteredProducts } from './apicore';
 import {prices} from './fixedprices';
@@ -245,16 +246,7 @@ const Shop = () => {
         ))}
       </List>
 
-      <List>
-       {['Search by Price'].map((text, index) => (
-        <ListItem button key={text}>
-          <Link color="inherit"variant="body2" className={classes.link} >
-            <ListItemText primary={text} />
-              <PriceBoxes prices={prices} handleFilters={filters => handleFilters(filters, "price")} />
-          </Link>
-        </ListItem>
-       ))}
-      </List>
+
     </div>
     )
   }
@@ -272,21 +264,6 @@ const Shop = () => {
           </Link>
         </ListItem>
       ))}
-
-      {['My Chart'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ?
-            <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
-              <ShoppingCartIcon />
-            </Badge>
-            :
-            <ShoppingCartIcon />}</ListItemIcon>
-          <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
-            <ListItemText primary={text} />
-          </Link>
-          </ListItem>
-      ))}
-
 
       {['Sign Out'].map((text, index) => (
         <ListItem button key={text}>
@@ -335,7 +312,7 @@ const Shop = () => {
           </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/" >
             <Typography className={classes.title} variant="h6" noWrap>
-              Daily Catering
+              Tukuada.com
             </Typography>
          </Link>
         </Toolbar>
@@ -372,9 +349,6 @@ const Shop = () => {
        <div>
          <SearchItem/>
        </div>
-       <Typography className={classes.card} gutterBottom variant="h5" component="h1">
-           Please Select Your Trip
-       </Typography>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (
             <Grid key={i} item xs={12} sm={3} md={3}>

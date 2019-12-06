@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     height: '10%',
     display: 'flex',
     flexDirection: 'column',
+  },
+  shownext: {
+    marginBottom: theme.spacing(10),
   }
 }))
 
@@ -86,6 +89,7 @@ const Cart = () => {
        size="small"
        color="primary"
        href="/reviewcart"
+       className={classes.shownext}
        >
         Next
       </Button>
@@ -96,7 +100,9 @@ const Cart = () => {
         variant="contained"
         size="small"
         href="/signin"
-        color="secondary">
+        color="secondary"
+        className={classes.shownext}
+        >
         Sign In to Next
       </Button>
     )

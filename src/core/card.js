@@ -16,7 +16,13 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
-
+import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import SendIcon from '@material-ui/icons/Send';
 import {Redirect} from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -24,6 +30,7 @@ import TextField from '@material-ui/core/TextField';
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import { Slide } from 'material-auto-rotating-carousel';
 import ShowImage from './showimage';
+import ShowImage1 from './showimage1';
 import moment from 'moment';
 import {addItem, updateItem, removeItem} from './carthelpers';
 import {isAuthenticated} from '../auth'
@@ -49,6 +56,9 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     backgroundColor: blue[500],
+  },
+  quantity: {
+    textAlign: "center"
   },
 }));
 
@@ -87,10 +97,15 @@ const CardProduct = ({
   }
 
   const showAddToChartButton = (showViewAddCart) => {
-    return(
+    return (
       showViewAddCart && (
         <Button fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
-          Pesan
+         <ListItem button>
+           <ListItemIcon>
+             <WhatsAppIcon  />
+           </ListItemIcon>
+          <ListItemText primary="Order" />
+          </ListItem>
         </Button>
       )
     );
@@ -99,14 +114,13 @@ const CardProduct = ({
 
 const showStock = (quantity) => {
     return quantity > 0 ?
-      <Typography variant="body2" color="textSecondary" component="p">
-          Porsi Untuk : {product.quantity} Orang
+      <Typography variant="body2" color="textSecondary" component="p" className={classes.quantity}>
+        Stock : {product.quantity} Pcs
       </Typography>
       :
-      <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="body2" color="textSecondary" component="p" className={classes.quantity}>
          Sold Out
       </Typography>
-
   }
 
 const showRemoveButton = (showRemoveProductButton) => {
@@ -184,23 +198,14 @@ const cartShowCartUpdateOptions = (cartUpdate) => {
 return (
     <Grid>
     <Card className={classes.card}>
-    <CardHeader
-      avatar={
-        <Avatar aria-label="recipe" className={classes.avatar}>
-          <RestaurantMenuIcon/>
-        </Avatar>
-      }
-      title={product.name}
-      subheader={product.schedule}
-    />
-    <ShowImage item={product} url="product"/>
+     <ShowImage item={product} url="product"/>
+     <ShowImage1 item={product} url="product"/>
      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {showStock(product.quantity)}
+        <Typography paragraph className={classes.quantity}>
+          {product.name}
         </Typography>
-        {cartShowCartUpdateOptions(cartUpdate)}
-        <br/>
-        {showRemoveButton(showRemoveProductButton)}
+          {cartShowCartUpdateOptions(cartUpdate)}
+          {showRemoveButton(showRemoveProductButton)}
       </CardContent>
       <CardActions disableSpacing>
           {showAddToChartButton(showViewAddCart)}
@@ -208,27 +213,49 @@ return (
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Menu:</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+           Cara ORDER :
+        </Typography>
+        <List>
+           <ListItem button>
+           <ListItemIcon>
+             <SendIcon />
+           </ListItemIcon>
+           <ListItemText primary="Klik Tombol ORDER" />
+         </ListItem>
+
+         <ListItem button>
+           <ListItemIcon>
+             <SendIcon />
+           </ListItemIcon>
+           <ListItemText>
+            Ketik : {product.name}
+           </ListItemText>
+         </ListItem>
+       </List>
+
+          <Typography variant="body2" color="textSecondary" component="p">Harga:</Typography>
           <Typography paragraph>
-            {product.name}
+            Rp {product.price}
           </Typography>
 
-          <Typography paragraph>Jadwal Menu:</Typography>
+          <Typography variant="body2" color="textSecondary" component="p">Warna:</Typography>
+          <Typography paragraph>
+           {product.color}
+          </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">Tersedia Ukuran:</Typography>
           <Typography paragraph>
             {product.schedule}
           </Typography>
 
-          <Typography paragraph>Harga:</Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+             Deskripsi:
+          </Typography>
           <Typography paragraph>
-            Rp {product.price} / box
+            {product.description.substring(0,1000)}
           </Typography>
 
-          <Typography paragraph>
-             Deskripsi Menu:
-          </Typography>
-          <Typography paragraph>
-             {product.description.substring(0,1000)}
-          </Typography>
 
           <Typography variant="body2" color="textSecondary" component="p">
             Added on {moment(product.createdAt).fromNow()}

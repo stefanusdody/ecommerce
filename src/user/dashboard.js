@@ -18,7 +18,7 @@ import List from '@material-ui/core/List';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import LabelIcon from '@material-ui/icons/Label';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import StoreIcon from '@material-ui/icons/Store';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -138,38 +138,10 @@ const Dashboard = () => {
     return (
     <div>
       <List>
-        {['Trip Schedule'].map((text, index) => (
+        {['Shop'].map((text, index) => (
           <ListItem button key={text}>
-            <ListItemIcon><FlightTakeoffIcon /></ListItemIcon>
+            <ListItemIcon><StoreIcon /></ListItemIcon>
             <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-              <ListItemText primary={text} />
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-
-
-      <List>
-        {['My Chart'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ?
-              <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
-                <ShoppingCartIcon />
-              </Badge>
-              :
-              <ShoppingCartIcon />}</ListItemIcon>
-            <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
-              <ListItemText primary={text} />
-            </Link>
-            </ListItem>
-        ))}
-      </List>
-
-      <List>
-        {['Purchase History'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon><HistoryIcon /></ListItemIcon>
-            <Link color="inherit"variant="body2" className={classes.link} href="/user/purchasehistory" >
               <ListItemText primary={text} />
             </Link>
           </ListItem>

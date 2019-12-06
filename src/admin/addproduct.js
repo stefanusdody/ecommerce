@@ -46,6 +46,7 @@ const AddProduct = () => {
   const [values, setValues] = useState({
     name: "",
     schedule: "",
+    color: "",
     price: "",
     categories: [],
     category: "",
@@ -64,6 +65,7 @@ const AddProduct = () => {
   const {
         name,
         schedule,
+        color,
         price,
         categories,
         category,
@@ -116,6 +118,7 @@ useEffect(() => {
             ...values,
             name: "",
             schedule: "",
+            color: "",
             photo: "",
             description: "",
             price: "",
@@ -170,17 +173,33 @@ useEffect(() => {
 
         <Grid item xs={12} >
           <TextField
-            autoComplete="schedule"
-            name="schedule"
+            autoComplete="size"
+            name="size"
             type="text"
             variant="outlined"
             required
             fullWidth
-            id="schedule"
-            label="Product Schedule"
+            id="size"
+            label="Size Product"
             autoFocus
             value={schedule}
             onChange={handleChange("schedule")}
+          />
+        </Grid>
+
+        <Grid item xs={12} >
+          <TextField
+            autoComplete="color"
+            name="color"
+            type="text"
+            variant="outlined"
+            required
+            fullWidth
+            id="color"
+            label="Product Color"
+            autoFocus
+            value={color}
+            onChange={handleChange("color")}
           />
         </Grid>
 

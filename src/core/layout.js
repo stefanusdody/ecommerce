@@ -64,7 +64,10 @@ const useStyles = makeStyles(theme => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
   },
-
+  img: {
+    width: "100%",
+    marginTop: theme.spacing(8),
+  },
 }));
 
 
@@ -73,32 +76,7 @@ const Layout = ({item, url}) => {
 
   return (
     <Container >
-      <Paper className={classes.mainFeaturedPost}>
-         {/* Increase the priority of the hero background image */}
-         {
-           <img
-             style={{ display: 'none' }}
-             src="https://source.unsplash.com/user/erondu"
-             alt="background"
-           />
-         }
-         <div className={classes.overlay} />
-         <Grid container>
-           <Grid item md={6}>
-             <div className={classes.mainFeaturedPostContent}>
-               <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                Daily Catering
-               </Typography>
-               <Typography variant="h5" color="inherit" paragraph>
-                 Choice You Favourite Menu Everyday
-               </Typography>
-               <Button variant="outlined" color="inherit" href="/shop" className={classes.button}>
-                  Cek Menu
-               </Button>
-             </div>
-           </Grid>
-         </Grid>
-       </Paper>
+      <img src={require('../assets/allaboutsports.png')} className={classes.img} alt=""/>
     </Container>
   )
 }

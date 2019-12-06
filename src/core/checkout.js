@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
   },
   cardGrid: {
     marginTop: theme.spacing(2),
-
   },
   text:{
     textAlign: "center",
@@ -62,11 +61,11 @@ const CheckOut = ({products}) => {
    getToken(userId, token)
    },[])
 
-   const handleAddress = event => {
+const handleAddress = event => {
      setData({...data, address: event.target.value})
    };
 
-  const getTotal = () => {
+const getTotal = () => {
     return products.reduce((currentValue, nextValue) => {
       return currentValue + nextValue.count * nextValue.price
     },0)
@@ -277,7 +276,6 @@ const showSuccess = success => (
 
 return (
     <React.Fragment>
-
          <Grid  container spacing={4}>
              <Grid item xs={12} sm={12} md={12}>
              {showSuccess(data.success)}

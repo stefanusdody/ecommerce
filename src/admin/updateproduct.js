@@ -48,12 +48,14 @@ const UpdateProduct = ({match}) => {
     name: "",
     schedule: "",
     description: "",
+    color: "",
     price: "",
     categories: [],
     category: "",
     shipping: "",
     quantity: "",
     photo: "",
+    photo1: "",
     loading: false,
     error: "",
     createdProduct: "",
@@ -65,6 +67,7 @@ const UpdateProduct = ({match}) => {
         name,
         schedule,
         description,
+        color,
         price,
         categories,
         category,
@@ -88,6 +91,7 @@ const UpdateProduct = ({match}) => {
                name: data.name,
                schedule: data.schedule,
                description: data.description,
+               color: data.color,
                price: data.price,
                category: data.category._id,
                shipping: data.shipping,
@@ -126,6 +130,12 @@ useEffect(() => {
    setValues({...values, [name]: value})
  };
 
+ const handleChange1 = name => event => {
+   const value = name === "photo1" ? event.target.files[0] : event.target.value
+   formData.set(name, value)
+   setValues({...values, [name]: value})
+ };
+
  const clickSubmit = event => {
   event.preventDefault()
   setValues({...values, error: "", loading:true})
@@ -139,7 +149,9 @@ useEffect(() => {
             name: "",
             schedule: "",
             description: "",
+            color: "",
             photo: "",
+            photo1: "",
             price: "",
             quantity: "",
             loading: false,
@@ -174,6 +186,23 @@ useEffect(() => {
         </Grid>
 
         <Grid item xs={12} >
+        <Typography variant="body2" color="textSecondary" component="p">
+          Update Photo Product 2
+        </Typography>
+           <TextField
+                autoComplete="photo1"
+                name="photo1"
+                variant="outlined"
+                fullWidth
+                id="photo1"
+                label=""
+                autoFocus
+                onChange={handleChange1("photo1")}
+                type="file"
+                accept="image/*" />
+         </Grid>
+
+        <Grid item xs={12} >
           <h4>Update Product Name</h4>
           <TextField
             autoComplete="fname"
@@ -189,17 +218,33 @@ useEffect(() => {
         </Grid>
 
         <Grid item xs={12} >
-          <h4>Update Product Schedule</h4>
+          <h4>Update Size Product</h4>
           <TextField
-            autoComplete="schedule"
-            name="schedule"
+            autoComplete="size"
+            name="size"
             type="text"
             variant="outlined"
             fullWidth
-            id="schedule"
+            id="size"
             autoFocus
             value={schedule}
             onChange={handleChange("schedule")}
+          />
+        </Grid>
+
+        <Grid item xs={12} >
+          <h4>Update Product Color</h4>
+          <TextField
+            autoComplete="color"
+            name="color"
+            type="text"
+            variant="outlined"
+            required
+            fullWidth
+            id="color"
+            autoFocus
+            value={color}
+            onChange={handleChange("color")}
           />
         </Grid>
 

@@ -12,16 +12,17 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ShowImage = ({item, url}) => {
+const ShowImage1 = ({item, url}) => {
  const classes = useStyles();
+
  return (
    <div className="product-img">
       <img
-        src={`${API}/${url}/photo/${item._id}`}
+        src={`${API}/${url}/photo1/${item._id}`}
         className={classes.image} alt={item.name}
         />
    </div>
    )
 };
 
-export default ShowImage;
+export default ShowImage1;

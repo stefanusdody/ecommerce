@@ -16,11 +16,11 @@ import PrivateRoute from "./auth/privateroute";
 import Profile from "./user/profile";
 import PurchaseHistory from "./user/purchasehistory";
 import PrimarySearchAppBar from "./core/Appbar"
+import StickyFooter from './core/footer';
 import Review from "./core/review";
 import SignUp from "./user/signup";
 import SignIn from "./user/signin";
 import Shop from "./core/shop";
-import TechStack from "./core/techstack"
 import UpdateProduct from "./admin/updateproduct";
 
 const Routes = () => {
@@ -33,7 +33,6 @@ const Routes = () => {
         <Route path="/signin" exact component={SignIn}/>
         <Route path="/signup" exact component={SignUp}/>
         <Route path="/cart" exact component={Cart}/>
-        <Route path="/tech-stack" exact component={TechStack}/>
         <Route path="/reviewcart" exact component={Review}/>
         <Route path="/checkout" exact component={CheckOut}/>
         <PrivateRoute
@@ -81,6 +80,7 @@ const Routes = () => {
                exact
                component={UpdateProduct}/>
        </Switch>
+     <StickyFooter/>
    </BrowserRouter>
  );
 };

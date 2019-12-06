@@ -14,7 +14,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import PaymentIcon from '@material-ui/icons/Payment';
-import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
+import StoreIcon from '@material-ui/icons/Store';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
@@ -95,24 +95,13 @@ const PrimarySearchAppBar = () => {
          </Link>
       </MenuItem>
 
-      <MenuItem>
-        <IconButton aria-label="show Cart" color="inherit">
-          <Badge color="primary" badgeContent={itemTotal()} className={classes.margin}>
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-         <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
-           <ListItemText>Cart</ListItemText>
-         </Link>
-      </MenuItem>
-
 
       <MenuItem>
         <IconButton aria-label="show Trip Schedule" color="inherit">
-            <RestaurantMenuIcon  />
+            <StoreIcon />
         </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
-             <ListItemText>Menus</ListItemText>
+             <ListItemText>Shop</ListItemText>
           </Link>
       </MenuItem>
 
@@ -153,8 +142,6 @@ const PrimarySearchAppBar = () => {
         </MenuItem>
         </div>
       )}
-
-
 
 
       {!isAuthenticated() && (
@@ -208,19 +195,6 @@ const PrimarySearchAppBar = () => {
           </MenuItem>
         )}
 
-        <MenuItem>
-            <IconButton aria-label="notifications" color="inherit">
-                <SystemUpdateAltIcon />
-            </IconButton>
-            <Link
-              color="inherit"
-              variant="body2"
-              className={classes.link}
-              href="/tech-stack"
-              >
-              <ListItemText>Tech Stack</ListItemText>
-             </Link>
-          </MenuItem>
     </Menu>
   );
 
@@ -229,7 +203,7 @@ const PrimarySearchAppBar = () => {
       <AppBar position="fixed" color="default">
         <Toolbar>
            <Typography className={classes.title} variant="h6" noWrap>
-             Daily Catering
+             Tukuada.com
            </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
@@ -245,20 +219,10 @@ const PrimarySearchAppBar = () => {
            </IconButton>
 
 
-            <IconButton aria-label="show Cart" color="inherit">
-             <Badge className={classes.margin} badgeContent={itemTotal()} color="primary">
-               <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
-                 <Typography className={classes.title} component="p">
-                  Cart
-                 </Typography>
-               </Link>
-             </Badge>
-            </IconButton>
-
             <IconButton aria-label="show Trip Schedule" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
-                   Menus
+                   Shop
                   </Typography>
               </Link>
             </IconButton>
@@ -330,15 +294,6 @@ const PrimarySearchAppBar = () => {
               </div>
              )}
 
-             <IconButton aria-label="Tech Stack" color="inherit">
-               <Link color="inherit"variant="body2" className={classes.link} href="/tech-stack" >
-                   <Typography className={classes.title} component="p">
-                    Tech Stack
-                   </Typography>
-               </Link>
-             </IconButton>
-
-
              {isAuthenticated() && (
                <IconButton
                 aria-label="exit application"
@@ -351,9 +306,6 @@ const PrimarySearchAppBar = () => {
                    </Typography>
                </IconButton>
              )}
-
-
-
 
           </div>
           <div className={classes.sectionMobile}>

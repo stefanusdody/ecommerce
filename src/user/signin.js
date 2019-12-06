@@ -14,19 +14,6 @@ import Container from '@material-ui/core/Container';
 import { signin, authenticate, isAuthenticated } from "../auth"
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -176,9 +163,11 @@ const SignIn = () => {
        {signInForm()}
        {redirectUser()}
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+       <Grid item>
+          <Link href="/signup" variant="body2">
+            {"Belum Punya Account? Daftar Sekarang"}
+          </Link>
+       </Grid>
     </Container>
   );
 }
