@@ -55,7 +55,6 @@ const UpdateProduct = ({match}) => {
     shipping: "",
     quantity: "",
     photo: "",
-    photo1: "",
     loading: false,
     error: "",
     createdProduct: "",
@@ -151,7 +150,6 @@ useEffect(() => {
             description: "",
             color: "",
             photo: "",
-            photo1: "",
             price: "",
             quantity: "",
             loading: false,
@@ -184,23 +182,6 @@ useEffect(() => {
                type="file"
                accept="image/*" />
         </Grid>
-
-        <Grid item xs={12} >
-        <Typography variant="body2" color="textSecondary" component="p">
-          Update Photo Product 2
-        </Typography>
-           <TextField
-                autoComplete="photo1"
-                name="photo1"
-                variant="outlined"
-                fullWidth
-                id="photo1"
-                label=""
-                autoFocus
-                onChange={handleChange1("photo1")}
-                type="file"
-                accept="image/*" />
-         </Grid>
 
         <Grid item xs={12} >
           <h4>Update Product Name</h4>

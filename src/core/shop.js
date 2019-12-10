@@ -21,6 +21,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+
 import AppBar from '@material-ui/core/AppBar';
 import SearchItem from './search';
 import CheckBoxes from "./checkbox";
@@ -136,7 +137,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   img: {
-    width: "30%",
+    width: "23%",
   },
 }));
 
@@ -248,8 +249,6 @@ const Shop = () => {
           </ListItem>
         ))}
       </List>
-
-
     </div>
     )
   }
@@ -314,9 +313,9 @@ const Shop = () => {
             <MenuIcon />
           </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/" >
-          <div>
-             <img src={require('../assets/logo.png')} className={classes.img} alt=""/>
-          </div>
+          <Typography variant="h6" className={classes.title}>
+            Tukuada.com
+          </Typography>
          </Link>
         </Toolbar>
       </AppBar>
@@ -354,7 +353,7 @@ const Shop = () => {
        </div>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (
-            <Grid key={i} item xs={12} sm={3} md={3}>
+            <Grid key={i} item xs={12} sm={4} md={4}>
               <CardProduct
                product={product}
                showViewImage= {true}

@@ -30,7 +30,6 @@ import TextField from '@material-ui/core/TextField';
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import { Slide } from 'material-auto-rotating-carousel';
 import ShowImage from './showimage';
-import ShowImage1 from './showimage1';
 import moment from 'moment';
 import {addItem, updateItem, removeItem} from './carthelpers';
 import {isAuthenticated} from '../auth'
@@ -199,11 +198,7 @@ return (
     <Grid>
     <Card className={classes.card}>
      <ShowImage item={product} url="product"/>
-     <ShowImage1 item={product} url="product"/>
      <CardContent>
-        <Typography paragraph className={classes.quantity}>
-          {product.name}
-        </Typography>
           {cartShowCartUpdateOptions(cartUpdate)}
           {showRemoveButton(showRemoveProductButton)}
       </CardContent>
@@ -213,6 +208,11 @@ return (
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">Nama Product:</Typography>
+        <Typography paragraph>
+          {product.name}
+        </Typography>
+
         <Typography variant="body2" color="textSecondary" component="p">
            Cara ORDER :
         </Typography>

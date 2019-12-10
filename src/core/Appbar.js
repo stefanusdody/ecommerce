@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   img: {
-    width: "30%",
+    width: "25%",
   },
 }));
 
@@ -205,9 +205,9 @@ const PrimarySearchAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="fixed" color="default">
         <Toolbar>
-          <div>
-             <img src={require('../assets/logo.png')} className={classes.img} alt=""/>
-          </div>
+           <Typography variant="h6" className={classes.title}>
+             Tukuada.com
+           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
 
