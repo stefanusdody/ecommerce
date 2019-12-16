@@ -267,14 +267,6 @@ const Shop = () => {
         </ListItem>
       ))}
 
-      {['Sign Out'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <ExitToAppIcon /> : <ExitToAppIcon /> }</ListItemIcon>
-          <Link color="inherit"variant="body2" className={classes.link} onClick={() => signout(() => { window.history.pushState(null, null,"/")})} href="/" >
-              <ListItemText primary={text} />
-          </Link>
-          </ListItem>
-      ))}
     </List>
     </div>
     )
@@ -348,6 +340,7 @@ const Shop = () => {
        <br/>
        <div>
          <SearchItem/>
+       <hr/>
        </div>
         <Grid container spacing={4}>
           {filteredResults.map((product, i) => (

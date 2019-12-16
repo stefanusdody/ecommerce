@@ -204,7 +204,16 @@ return (
       </CardContent>
       <CardActions disableSpacing>
           {showAddToChartButton(showViewAddCart)}
-          {showNext()}
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
@@ -248,6 +257,47 @@ return (
           <Typography paragraph>
             {product.schedule}
           </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">
+             Keterangan Ukuran :
+          </Typography>
+          <List>
+             <ListItem button>
+               <ListItemText>
+                 S
+               </ListItemText>
+              <ListItemText primary="47 x 67 Cm" />
+             </ListItem>
+
+             <ListItem button>
+               <ListItemText>
+                 M
+               </ListItemText>
+              <ListItemText primary="49 x 69 Cm" />
+             </ListItem>
+
+             <ListItem button>
+               <ListItemText>
+                 L
+               </ListItemText>
+              <ListItemText primary="51 x 71 Cm" />
+             </ListItem>
+
+             <ListItem button>
+               <ListItemText>
+                 XL
+               </ListItemText>
+              <ListItemText primary="53 x 73 Cm" />
+             </ListItem>
+
+             <ListItem button>
+               <ListItemText>
+                 XXL
+               </ListItemText>
+              <ListItemText primary="55 x 75 Cm" />
+             </ListItem>
+
+         </List>
 
           <Typography variant="body2" color="textSecondary" component="p">
              Deskripsi:

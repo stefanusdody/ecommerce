@@ -6,6 +6,8 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
@@ -26,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-
+    marginTop: theme.spacing(4),
   },
   main: {
     marginTop: theme.spacing(8),
@@ -45,12 +47,12 @@ const useStyles = makeStyles(theme => ({
    copyright: {
      textAlign: 'center'
    },
-   sociamedia: {
-     marginLeft: theme.spacing(4),
-     width: "50px"
-   },
    img: {
      width: "50%"
+   },
+   sosmed: {
+     marginLeft: "10%",
+     fontSize: 50
    }
 }));
 
@@ -59,9 +61,9 @@ export default function StickyFooter() {
 
   return (
     <div  className={classes.root}>
-    <Container maxWidth="md" component="footer" className={classes.footer}>
+    <Container>
       <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={6} md={4}>
             <img src={require('../assets/fontlogo.png')} className={classes.img} alt=""/>
                <Typography href="#" variant="subtitle1" color="textSecondary">
                 TokoTukuAda.com menyediakan sejumlah fashion terkini dengan tema ALL ABOUT SPORTS untuk melengkapi gaya SPORTY kamu setiap hari.
@@ -76,12 +78,6 @@ export default function StickyFooter() {
               <li>
                 <Link href="#" variant="subtitle1" color="textSecondary">
                   Cara Order
-                </Link>
-              </li>
-
-              <li>
-                <Link href="#" variant="subtitle1" color="textSecondary">
-                  Informasi Ukuran Baju
                 </Link>
               </li>
 
@@ -114,21 +110,54 @@ export default function StickyFooter() {
                     Hubungi Kami
                   </Link>
                 </li>
+                <br/>
+                <Typography variant="h6" color="textPrimary" gutterBottom>
+                  TEMUKAN KAMI
+                </Typography>
+
+                 <Link href="#" variant="subtitle1" color="textSecondary">
+                      <FacebookIcon className={classes.sosmed}/>
+                  </Link>
+                 <Link href="#" variant="subtitle1" color="textSecondary">
+                   <InstagramIcon className={classes.sosmed} />
+                 </Link>
+
 
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" color="textPrimary" gutterBottom>
-              TEMUKAN KAMI
-            </Typography>
-
-             <Link href="#" variant="subtitle1" color="textSecondary">
-                <FacebookIcon className={classes.sociamedia} />
-              </Link>
-
-             <Link href="#" variant="subtitle1" color="textSecondary">
-                <InstagramIcon />
-              </Link>
+          <Grid item xs={12} sm={6} md={5}>
+              <Typography variant="h6" color="textPrimary" gutterBottom>
+                ANDA BARU di TokoTukuAda.com?
+              </Typography>
+              <Typography href="#" variant="subtitle1" color="textSecondary">
+               Dapatkan Voucher Discount (ditambah dengan berita fashion dan peluncuran brand terbaru) hanya dengan berlangganan newsletter kami.
+              </Typography>
+             <br/>
+              <Typography href="#" variant="subtitle1" color="textSecondary">
+               Alamat email Kamu
+              </Typography>
+              <form>
+                <TextField
+                 variant="outlined"
+                 margin="normal"
+                 required
+                 fullWidth
+                 id="email"
+                 label="Email Address"
+                 name="email"
+                 autoComplete="email"
+                 autoFocus
+                />
+                <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Submit
+            </Button>
+             </form>
           </Grid>
 
       </Grid>
