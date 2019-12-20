@@ -21,6 +21,9 @@ import Review from "./core/review";
 import SignUp from "./user/signup";
 import SignIn from "./user/signin";
 import Shop from "./core/shop";
+import Order from "./core/order";
+import ReviewProducts from "./core/reviewproducts";
+import ConfirmationPayment from "./core/confirmation";
 import UpdateProduct from "./admin/updateproduct";
 
 const Routes = () => {
@@ -34,7 +37,9 @@ const Routes = () => {
         <Route path="/signup" exact component={SignUp}/>
         <Route path="/cart" exact component={Cart}/>
         <Route path="/reviewcart" exact component={Review}/>
-        <Route path="/checkout" exact component={CheckOut}/>
+        <Route path="/caraorder" exact component={Order}/>
+        <Route path="/review-products" exact component={ReviewProducts}/>
+        <Route path="/konfirmasi-pembayaran" exact component={ConfirmationPayment}/>
         <PrivateRoute
                path="/paymentconfirmation"
                exact

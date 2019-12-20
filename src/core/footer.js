@@ -66,7 +66,7 @@ export default function StickyFooter() {
           <Grid item xs={12} sm={6} md={4}>
             <img src={require('../assets/fontlogo.png')} className={classes.img} alt=""/>
                <Typography href="#" variant="subtitle1" color="textSecondary">
-                TokoTukuAda.com menyediakan sejumlah fashion terkini dengan tema ALL ABOUT SPORTS untuk melengkapi gaya SPORTY kamu setiap hari.
+                TokoTukuAda.com menyediakan sejumlah fashion terkini untuk melengkapi gaya SPORTY kamu setiap hari.
                </Typography>
           </Grid>
 
@@ -75,21 +75,21 @@ export default function StickyFooter() {
               LAYANAN
             </Typography>
 
+            <li>
+              <Link href="/review-products" variant="subtitle1" color="textSecondary">
+                Review Product
+              </Link>
+            </li>
+
               <li>
-                <Link href="#" variant="subtitle1" color="textSecondary">
+                <Link href="/caraorder" variant="subtitle1" color="textSecondary">
                   Cara Order
                 </Link>
               </li>
 
                <li>
-                 <Link href="#" variant="subtitle1" color="textSecondary">
+                 <Link href="/konfirmasi-pembayaran" variant="subtitle1" color="textSecondary">
                    Konfirmasi Pembayaran
-                 </Link>
-               </li>
-
-               <li>
-                 <Link href="#" variant="subtitle1" color="textSecondary">
-                   Proses Pengiriman
                  </Link>
                </li>
 
@@ -130,7 +130,7 @@ export default function StickyFooter() {
                 ANDA BARU di TokoTukuAda.com?
               </Typography>
               <Typography href="#" variant="subtitle1" color="textSecondary">
-               Dapatkan Voucher Discount (ditambah dengan berita fashion dan peluncuran brand terbaru) hanya dengan berlangganan newsletter kami.
+               Dapatkan Promo Menarik (ditambah dengan berita fashion terbaru) hanya dengan berlangganan newsletter kami.
               </Typography>
              <br/>
               <Typography href="#" variant="subtitle1" color="textSecondary">
@@ -149,14 +149,14 @@ export default function StickyFooter() {
                  autoFocus
                 />
                 <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Submit
-            </Button>
+                 type="submit"
+                 fullWidth
+                 variant="contained"
+                 color="primary"
+                 className={classes.submit}
+                >
+                Submit
+                </Button>
              </form>
           </Grid>
 

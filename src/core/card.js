@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -30,6 +31,13 @@ import TextField from '@material-ui/core/TextField';
 import { AutoRotatingCarousel } from 'material-auto-rotating-carousel';
 import { Slide } from 'material-auto-rotating-carousel';
 import ShowImage from './showimage';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import moment from 'moment';
 import {addItem, updateItem, removeItem} from './carthelpers';
 import {isAuthenticated} from '../auth'
@@ -59,7 +67,45 @@ const useStyles = makeStyles(theme => ({
   quantity: {
     textAlign: "center"
   },
+  button: {
+    marginTop: '5px',
+    marginBottom: '15px'
+  },
+  size: {
+    textAlign: "center"
+  }
 }));
+
+const StyledMenu = withStyles({
+  paper: {
+    border: '1px solid #d3d4d5',
+  },
+})(props => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles(theme => ({
+  root: {
+    '&:focus': {
+      backgroundColor: theme.palette.primary.main,
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem);
 
 const CardProduct = ({
       product,
@@ -78,9 +124,18 @@ const CardProduct = ({
     open: true
   })
   const [expanded, setExpanded] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleClickButton = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   const addToCart = () => {
@@ -98,13 +153,8 @@ const CardProduct = ({
   const showAddToChartButton = (showViewAddCart) => {
     return (
       showViewAddCart && (
-        <Button fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
-         <ListItem button>
-           <ListItemIcon>
-             <WhatsAppIcon  />
-           </ListItemIcon>
-          <ListItemText primary="Order" />
-          </ListItem>
+        <Button variant="contained" fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
+           Order Sekarang
         </Button>
       )
     );
@@ -222,27 +272,6 @@ return (
           {product.name}
         </Typography>
 
-        <Typography variant="body2" color="textSecondary" component="p">
-           Cara ORDER :
-        </Typography>
-        <List>
-           <ListItem button>
-           <ListItemIcon>
-             <SendIcon />
-           </ListItemIcon>
-           <ListItemText primary="Klik Tombol ORDER" />
-         </ListItem>
-
-         <ListItem button>
-           <ListItemIcon>
-             <SendIcon />
-           </ListItemIcon>
-           <ListItemText>
-            Ketik : {product.name}
-           </ListItemText>
-         </ListItem>
-       </List>
-
           <Typography variant="body2" color="textSecondary" component="p">Harga:</Typography>
           <Typography paragraph>
             Rp {product.price}
@@ -261,43 +290,62 @@ return (
           <Typography variant="body2" color="textSecondary" component="p">
              Keterangan Ukuran :
           </Typography>
-          <List>
-             <ListItem button>
-               <ListItemText>
-                 S
-               </ListItemText>
-              <ListItemText primary="47 x 67 Cm" />
-             </ListItem>
 
-             <ListItem button>
-               <ListItemText>
-                 M
-               </ListItemText>
-              <ListItemText primary="49 x 69 Cm" />
-             </ListItem>
+          <Button
+           aria-controls="customized-menu"
+           aria-haspopup="true"
+           variant="contained"
+           color="primary"
+           className={classes.button}
+           onClick={handleClickButton}
+          >
+          T-Shirt
+          </Button>
+          <StyledMenu
+           id="customized-menu"
+           anchorEl={anchorEl}
+           keepMounted
+           open={Boolean(anchorEl)}
+           onClose={handleClose}
+          >
 
-             <ListItem button>
-               <ListItemText>
-                 L
-               </ListItemText>
-              <ListItemText primary="51 x 71 Cm" />
-             </ListItem>
 
-             <ListItem button>
-               <ListItemText>
-                 XL
-               </ListItemText>
-              <ListItemText primary="53 x 73 Cm" />
-             </ListItem>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>Ukuran</TableCell>
+                <TableCell>Lebar x Panjang </TableCell>
+              </TableRow>
+            </TableHead>
+          </Table>
 
-             <ListItem button>
-               <ListItemText>
-                 XXL
-               </ListItemText>
-              <ListItemText primary="55 x 75 Cm" />
-             </ListItem>
+          <TableBody className={classes.size}>
+            <TableRow>
+              <TableCell>S</TableCell>
+              <TableCell>47 x 67 Cm</TableCell>
+            </TableRow>
 
-         </List>
+            <TableRow>
+              <TableCell>M</TableCell>
+              <TableCell>49 x 69 Cm</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>L</TableCell>
+              <TableCell>51 x 71 Cm</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>XL</TableCell>
+              <TableCell>53 x 73 Cm</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell>XXL</TableCell>
+              <TableCell>55 x 75 Cm</TableCell>
+            </TableRow>
+          </TableBody>
+       </StyledMenu>
 
           <Typography variant="body2" color="textSecondary" component="p">
              Deskripsi:
@@ -305,6 +353,28 @@ return (
           <Typography paragraph>
             {product.description.substring(0,1000)}
           </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">
+             Estimasi Pengiriman:
+          </Typography>
+          <Typography paragraph>
+            Estimasi Pengiriman 5 hari kerja
+          </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">
+             Ulasan Produk :
+          </Typography>
+
+          <Button
+           aria-controls="customized-menu"
+           aria-haspopup="true"
+           variant="contained"
+           color="primary"
+           className={classes.button}
+           href="/review-products"
+          >
+           Lihat Review Produk
+          </Button>
 
 
           <Typography variant="body2" color="textSecondary" component="p">
