@@ -147,6 +147,24 @@ export const createPayment = (payment) => {
   })
 };
 
+
+export const createSubscription = subscription => {
+  return fetch(`${API}/subscription/create`, {
+     method: "POST",
+     headers: {
+       Accept: 'application/json',
+       "Content-Type": 'application/json'
+     },
+     body: JSON.stringify(subscription)
+  })
+  .then(response => {
+    return response.json()
+  })
+  .catch(err => {
+    console.log(err)
+  })
+};
+
 export const getStatusValues = (userId, token) => {
   return fetch(`${API}/order/status-values/${userId}`, {
      method: "GET",

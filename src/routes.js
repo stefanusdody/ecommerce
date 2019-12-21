@@ -22,9 +22,12 @@ import SignUp from "./user/signup";
 import SignIn from "./user/signin";
 import Shop from "./core/shop";
 import Order from "./core/order";
+import ContactUs from "./core/contact";
+import ResiShipment from "./core/resishipment";
 import ReviewProducts from "./core/reviewproducts";
 import ConfirmationPayment from "./core/confirmation";
 import UpdateProduct from "./admin/updateproduct";
+
 
 const Routes = () => {
   return(
@@ -40,6 +43,8 @@ const Routes = () => {
         <Route path="/caraorder" exact component={Order}/>
         <Route path="/review-products" exact component={ReviewProducts}/>
         <Route path="/konfirmasi-pembayaran" exact component={ConfirmationPayment}/>
+        <Route path="/Resi-Pengiriman" exact component={ResiShipment}/>
+        <Route path="/Hubungi-Kami" exact component={ContactUs}/>
         <PrivateRoute
                path="/paymentconfirmation"
                exact

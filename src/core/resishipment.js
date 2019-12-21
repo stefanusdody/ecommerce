@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
- const ConfirmationPayment = () => {
+ const ResiShipment = () => {
   const classes = useStyles();
 
   return (
@@ -37,33 +37,26 @@ const useStyles = makeStyles(theme => ({
       <CssBaseline />
       <Container component="main" className={classes.main} maxWidth="sm">
         <Typography variant="h5" component="h6" gutterBottom>
-          Konfirmasi Pembayaran
+          Cek Resi Pengiriman
         </Typography>
 
-        <Typography variant="subtitle1" color="textSecondary">
-          Terima kasih telah berbelanja di TokoTukuAda! Bila Kamu telah melakukan pembayaran
-          secara BANK TRANSFER, konfirmasikan pembayaran Anda disini agar dapat kami proses segera.
+        <Typography href="#" variant="subtitle1" color="textSecondary">
+          Terima kasih telah berbelanja di TokoTukuAda! Kamu Dapat mengecek Status Pengiriman Order kamu dengan memasukan No. Resi Pada Link dibawah ini
         </Typography>
-        <ListItem button>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText>Upload Struk/Screenshoot pembayaranmu jika menggunakan M-Banking sebagai bukti bahwa kamu telah melakukan pembayaran</ListItemText>
-        </ListItem>
         <br/>
         <Button
          type="submit"
          fullWidth
          variant="contained"
          color="secondary"
-         href="/shop"
+         href="http://bit.ly/JNE-Tracking"
          className={classes.submit}
         >
-         Konfirmasi Sekarang
+         Cek Resi Pengiriman
         </Button>
       </Container>
     </div>
   );
 }
 
-export default ConfirmationPayment;
+export default ResiShipment;

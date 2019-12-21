@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import { createSubscription } from './apicore';
 
 function Copyright() {
   return (
@@ -56,8 +57,37 @@ const useStyles = makeStyles(theme => ({
    }
 }));
 
-export default function StickyFooter() {
+const StickyFooter = () => {
   const classes = useStyles();
+  const [values, setValues] = useState({
+    email: "",
+    error: "",
+    success: false
+  })
+
+  const {email, error, success } = values
+
+  const handleChange = name => event => {
+    setValues({ ...values, error: false, [name]: event.target.value });
+  };
+
+  const clickSubmit = event => {
+    event.preventDefault();
+    setValues({ ...values, error: false});
+    createSubscription({ email }).then(data => {
+      if(data.error) {
+        setValues({ ...values, error: data.error, success: false })
+      } else {
+        setValues({
+          ...values,
+          email: "",
+          error: "",
+          success: true
+        });
+      }
+    })
+  };
+
 
   return (
     <div  className={classes.root}>
@@ -94,22 +124,17 @@ export default function StickyFooter() {
                </li>
 
                 <li>
-                  <Link href="#" variant="subtitle1" color="textSecondary">
+                  <Link href="/Resi-Pengiriman" variant="subtitle1" color="textSecondary">
                     Cek Resi Pengiriman
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="#" variant="subtitle1" color="textSecondary">
-                    Prosedur Pengembalian
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="#" variant="subtitle1" color="textSecondary">
+                  <Link href="/Hubungi-Kami" variant="subtitle1" color="textSecondary">
                     Hubungi Kami
                   </Link>
                 </li>
+
                 <br/>
                 <Typography variant="h6" color="textPrimary" gutterBottom>
                   TEMUKAN KAMI
@@ -147,6 +172,8 @@ export default function StickyFooter() {
                  name="email"
                  autoComplete="email"
                  autoFocus
+                 value={email}
+                 onChange={handleChange("email")}
                 />
                 <Button
                  type="submit"
@@ -154,6 +181,7 @@ export default function StickyFooter() {
                  variant="contained"
                  color="primary"
                  className={classes.submit}
+                 onClick={clickSubmit}
                 >
                 Submit
                 </Button>
@@ -169,3 +197,5 @@ export default function StickyFooter() {
     </div>
   );
 }
+
+export default StickyFooter;

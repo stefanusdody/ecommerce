@@ -8,7 +8,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import SendIcon from '@material-ui/icons/Send';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   main: {
     marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
   },
   footer: {
     padding: theme.spacing(3, 2),
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
- const ConfirmationPayment = () => {
+ const ContactUs = () => {
   const classes = useStyles();
 
   return (
@@ -37,20 +38,32 @@ const useStyles = makeStyles(theme => ({
       <CssBaseline />
       <Container component="main" className={classes.main} maxWidth="sm">
         <Typography variant="h5" component="h6" gutterBottom>
-          Konfirmasi Pembayaran
+          Hubungi Kami
         </Typography>
-
+        <hr/>
         <Typography variant="subtitle1" color="textSecondary">
-          Terima kasih telah berbelanja di TokoTukuAda! Bila Kamu telah melakukan pembayaran
-          secara BANK TRANSFER, konfirmasikan pembayaran Anda disini agar dapat kami proses segera.
+          Jam Operasional Kami :
         </Typography>
         <ListItem button>
           <ListItemIcon>
-            <SendIcon />
+            <AccessTimeIcon />
           </ListItemIcon>
-          <ListItemText>Upload Struk/Screenshoot pembayaranmu jika menggunakan M-Banking sebagai bukti bahwa kamu telah melakukan pembayaran</ListItemText>
+          <ListItemText>Senin s/d Jumat (08.00 s/d 19.00)</ListItemText>
         </ListItem>
+
+        <ListItem button>
+          <ListItemIcon>
+            <AccessTimeIcon />
+          </ListItemIcon>
+          <ListItemText>Sabtu (08.00 s/d 15.00)</ListItemText>
+        </ListItem>
+        <hr/>
+
+          <Typography variant="subtitle1" color="textSecondary">
+            Admin kami akan melayani kamu dengan baik
+          </Typography>
         <br/>
+
         <Button
          type="submit"
          fullWidth
@@ -59,11 +72,13 @@ const useStyles = makeStyles(theme => ({
          href="/shop"
          className={classes.submit}
         >
-         Konfirmasi Sekarang
-        </Button>
+        Contact Kami
+       </Button>
+
+
       </Container>
     </div>
   );
 }
 
-export default ConfirmationPayment;
+export default ContactUs;
