@@ -140,7 +140,7 @@ const StickyFooter = () => {
                   TEMUKAN KAMI
                 </Typography>
 
-                 <Link href="#" variant="subtitle1" color="textSecondary">
+                 <Link href="http://bit.ly/FBtokotukuada" variant="subtitle1" color="textSecondary">
                       <FacebookIcon className={classes.sosmed}/>
                   </Link>
                  <Link href="#" variant="subtitle1" color="textSecondary">
