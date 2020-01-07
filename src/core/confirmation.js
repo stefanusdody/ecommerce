@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
          fullWidth
          variant="contained"
          color="secondary"
-         href="/shop"
+         href="http://bit.ly/ordertokotukuada"
          className={classes.submit}
         >
          Konfirmasi Sekarang

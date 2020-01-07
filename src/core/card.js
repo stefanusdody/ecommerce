@@ -153,7 +153,7 @@ const CardProduct = ({
   const showAddToChartButton = (showViewAddCart) => {
     return (
       showViewAddCart && (
-        <Button variant="contained" fullWidth onClick={addToCart} size="small" color="secondary" href="/cart">
+        <Button variant="contained" fullWidth href="http://bit.ly/ordertokotukuada" size="small" color="secondary">
            Order Sekarang
         </Button>
       )
