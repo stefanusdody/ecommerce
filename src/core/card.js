@@ -282,6 +282,11 @@ return (
            {product.color}
           </Typography>
 
+          <Typography variant="body2" color="textSecondary" component="p">Bahan:</Typography>
+          <Typography paragraph>
+           Cotton Combed 30's
+          </Typography>
+
           <Typography variant="body2" color="textSecondary" component="p">Tersedia Ukuran:</Typography>
           <Typography paragraph>
             {product.schedule}
@@ -358,7 +363,7 @@ return (
              Estimasi Pengiriman:
           </Typography>
           <Typography paragraph>
-            Estimasi Pengiriman 5 hari kerja
+            Estimasi Pengiriman 5 - 7 hari kerja
           </Typography>
 
           <Typography variant="body2" color="textSecondary" component="p">
