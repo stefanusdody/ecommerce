@@ -64,7 +64,7 @@ const Home = () => {
       <div>
       <Container>
       <Typography className={classes.card} gutterBottom variant="h5" component="h1">
-         New Arrival 
+         New Arrival
       </Typography>
         <Grid container spacing={2}>
            {productsByArrival.map((product, i) => (
