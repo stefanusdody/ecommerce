@@ -71,6 +71,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: '5px',
     marginBottom: '15px'
   },
+  wa: {
+    marginRight: '5px',
+  },
   size: {
     textAlign: "center"
   }
@@ -154,7 +157,8 @@ const CardProduct = ({
     return (
       showViewAddCart && (
         <Button variant="contained" fullWidth href="http://bit.ly/ordertokotukuada" size="small" color="secondary">
-           Order Sekarang
+          <WhatsAppIcon className={classes.wa} />
+           Order via WhatsApp
         </Button>
       )
     );
