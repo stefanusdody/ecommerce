@@ -156,7 +156,7 @@ const CardProduct = ({
   const showAddToChartButton = (showViewAddCart) => {
     return (
       showViewAddCart && (
-        <Button variant="contained" fullWidth href="http://bit.ly/ordertokotukuada" size="small" color="secondary">
+        <Button variant="contained" fullWidth href="http://bit.ly/ordertokotukuada"  color="secondary">
           <WhatsAppIcon className={classes.wa} />
            Order via WhatsApp
         </Button>
@@ -256,18 +256,23 @@ return (
           {cartShowCartUpdateOptions(cartUpdate)}
           {showRemoveButton(showRemoveProductButton)}
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions>
           {showAddToChartButton(showViewAddCart)}
-          <IconButton
+      </CardActions>
+      <CardActions>
+          <Button
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
             })}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
+            color="primary"
+            variant="contained"
+            fullWidth
           >
-            <ExpandMoreIcon />
-          </IconButton>
+             Detail Produk
+          </Button>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
@@ -275,7 +280,6 @@ return (
         <Typography paragraph>
           {product.name}
         </Typography>
-
           <Typography variant="body2" color="textSecondary" component="p">Harga:</Typography>
           <Typography paragraph>
             Rp {product.price}
@@ -308,7 +312,7 @@ return (
            className={classes.button}
            onClick={handleClickButton}
           >
-          T-Shirt
+            T-Shirt
           </Button>
           <StyledMenu
            id="customized-menu"
