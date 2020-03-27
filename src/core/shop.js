@@ -305,7 +305,6 @@ const Shop = () => {
             <MenuIcon />
           </IconButton>
           <Link color="inherit"variant="body2" className={classes.link} href="/" >
-          <img src={require('../assets/fontlogo.png')} className={classes.img} alt=""/>
          </Link>
         </Toolbar>
       </AppBar>
