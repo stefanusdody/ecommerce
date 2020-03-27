@@ -94,7 +94,6 @@ const StickyFooter = () => {
     <Container>
       <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={4}>
-            <img src={require('../assets/fontlogo.png')} className={classes.img} alt=""/>
                <Typography href="#" variant="subtitle1" color="textSecondary">
                 TokoTukuAda.com menyediakan sejumlah fashion terkini untuk melengkapi gaya SPORTY kamu setiap hari.
                </Typography>
