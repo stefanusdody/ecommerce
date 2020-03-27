@@ -115,7 +115,6 @@ const PrimarySearchAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="fixed" color="default">
         <Toolbar>
-           <img src={require('../assets/fontlogo.png')} className={classes.img} alt=""/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
 

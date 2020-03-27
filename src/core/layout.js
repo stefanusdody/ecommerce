@@ -77,7 +77,7 @@ const Layout = ({item, url}) => {
 
   return (
     <Container >
-      <img src={require('../assets/allaboutsports.png')} className={classes.img} alt=""/>
+    
     </Container>
   )
 }
