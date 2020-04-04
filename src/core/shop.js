@@ -21,7 +21,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-
 import AppBar from '@material-ui/core/AppBar';
 import SearchItem from './search';
 import CheckBoxes from "./checkbox";
@@ -39,7 +38,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(3),
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -266,8 +265,21 @@ const Shop = () => {
           </Link>
         </ListItem>
       ))}
-
     </List>
+
+    <List>
+      {['My Cart'].map((text, index) => (
+        <ListItem button key={text}>
+          <ListItemIcon>{index % 2 === 0 ? <ShoppingCartIcon /> : <ShoppingCartIcon />}</ListItemIcon>
+          <Link color="inherit"variant="body2" className={classes.link} href="/" >
+            <Badge badgeContent={itemTotal()} color="primary">
+              <ListItemText primary={text} />
+            </Badge>
+          </Link>
+        </ListItem>
+      ))}
+    </List>
+
     </div>
     )
   }
@@ -286,7 +298,6 @@ const Shop = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-
       <AppBar
         position="fixed"
         color="default"
@@ -304,8 +315,6 @@ const Shop = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Link color="inherit"variant="body2" className={classes.link} href="/" >
-         </Link>
         </Toolbar>
       </AppBar>
 
@@ -339,11 +348,10 @@ const Shop = () => {
        <br/>
        <div>
          <SearchItem/>
-       <hr/>
        </div>
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
           {filteredResults.map((product, i) => (
-            <Grid key={i} item xs={12} sm={6} md={4}>
+            <Grid key={i} item xs={12} sm={6} md={6}>
               <CardProduct
                product={product}
                showViewImage= {true}

@@ -16,10 +16,10 @@ import PrivateRoute from "./auth/privateroute";
 import Profile from "./user/profile";
 import PurchaseHistory from "./user/purchasehistory";
 import PrimarySearchAppBar from "./core/Appbar"
-import StickyFooter from './core/footer';
 import Review from "./core/review";
 import SignUp from "./user/signup";
 import SignIn from "./user/signin";
+import Product from './core/product';
 import Shop from "./core/shop";
 import Order from "./core/order";
 import ContactUs from "./core/contact";
@@ -45,6 +45,7 @@ const Routes = () => {
         <Route path="/konfirmasi-pembayaran" exact component={ConfirmationPayment}/>
         <Route path="/Resi-Pengiriman" exact component={ResiShipment}/>
         <Route path="/Hubungi-Kami" exact component={ContactUs}/>
+        <Route path="/product/:productId" exact component={Product} />
         <PrivateRoute
                path="/paymentconfirmation"
                exact
@@ -90,7 +91,6 @@ const Routes = () => {
                exact
                component={UpdateProduct}/>
        </Switch>
-     <StickyFooter/>
    </BrowserRouter>
  );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,11 +13,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import PaymentIcon from '@material-ui/icons/Payment';
 import StoreIcon from '@material-ui/icons/Store';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
-import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 import ListItemText from '@material-ui/core/ListItemText';
 import {signout, isAuthenticated } from '../auth/index';
 import {itemTotal} from './carthelpers';
@@ -53,7 +51,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const PrimarySearchAppBar = () => {
+
+const PrimarySearchAppBar = ({history}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -98,7 +97,6 @@ const PrimarySearchAppBar = () => {
          </Link>
       </MenuItem>
 
-
       <MenuItem>
         <IconButton aria-label="show Trip Schedule" color="inherit">
             <StoreIcon />
@@ -108,6 +106,74 @@ const PrimarySearchAppBar = () => {
           </Link>
       </MenuItem>
 
+      <MenuItem>
+        <IconButton aria-label="show Trip Schedule" color="inherit">
+            <ShoppingCartIcon />
+        </IconButton>
+          <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
+            <Badge badgeContent={itemTotal()} color="primary">
+              <ListItemText>My Cart</ListItemText>
+            </Badge>
+          </Link>
+      </MenuItem>
+
+     {isAuthenticated() && isAuthenticated().user.role === 0 && (
+      <MenuItem>
+        <IconButton aria-label="show Dashboard" color="inherit">
+            <DashboardIcon />
+        </IconButton>
+          <Link color="inherit"variant="body2" className={classes.link} href="/user/dashboard" >
+             <ListItemText>Dashboard</ListItemText>
+          </Link>
+      </MenuItem>
+     )}
+
+     {isAuthenticated() && isAuthenticated().user.role === 1 && (
+      <MenuItem>
+        <IconButton aria-label="show Dashboard" color="inherit">
+            <DashboardIcon />
+        </IconButton>
+          <Link color="inherit"variant="body2" className={classes.link} href="/admin/dashboard" >
+             <ListItemText>Dashboard</ListItemText>
+          </Link>
+      </MenuItem>
+     )}
+
+    {!isAuthenticated() && (
+      <div>
+        <MenuItem>
+        <IconButton aria-label="show SignUp" color="inherit">
+            <CreateIcon />
+        </IconButton>
+          <Link color="inherit"variant="body2" className={classes.link} href="/signup" >
+             <ListItemText>Sign Up</ListItemText>
+          </Link>
+        </MenuItem>
+
+        <MenuItem>
+        <IconButton aria-label="show SignIn" color="inherit">
+          <AccountCircle />
+        </IconButton>
+        <Link color="inherit"variant="body2" className={classes.link} href="/signin" >
+           <ListItemText>Sign In</ListItemText>
+        </Link>
+       </MenuItem>
+      </div>
+     )}
+
+    {isAuthenticated() && (
+     <MenuItem>
+     <IconButton aria-label="show SignIn" color="inherit">
+       <ExitToAppIcon />
+     </IconButton>
+     <Link color="inherit"variant="body2" className={classes.link}>
+        <ListItemText
+         onClick={() => signout(() => {history.push("/");})}
+        >Sign Out</ListItemText>
+     </Link>
+    </MenuItem>
+    )}
+
     </Menu>
   );
 
@@ -115,6 +181,10 @@ const PrimarySearchAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="fixed" color="default">
         <Toolbar>
+          <Typography className={classes.title} component="p">
+            Tukuada.com
+          </Typography>
+
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
 
@@ -128,8 +198,7 @@ const PrimarySearchAppBar = () => {
             </Badge>
            </IconButton>
 
-
-            <IconButton aria-label="show Trip Schedule" color="inherit">
+            <IconButton aria-label="show Shop" color="inherit">
               <Link color="inherit"variant="body2" className={classes.link} href="/shop" >
                   <Typography className={classes.title} component="p">
                    Shop
@@ -137,7 +206,69 @@ const PrimarySearchAppBar = () => {
               </Link>
             </IconButton>
 
+            <IconButton aria-label="show Cart" color="inherit">
+              <Link color="inherit"variant="body2" className={classes.link} href="/cart" >
+                 <Badge badgeContent={itemTotal()} color="primary">
+                   <Typography className={classes.title} component="p">
+                    My Cart
+                   </Typography>
+                 </Badge>
+              </Link>
+            </IconButton>
+
+           {isAuthenticated() && isAuthenticated().user.role === 0 && (
+            <IconButton aria-label="show Dashboard" color="inherit">
+              <Link color="inherit"variant="body2" className={classes.link} href="/user/dashboard" >
+                   <Typography className={classes.title} component="p">
+                    Dashboard
+                   </Typography>
+              </Link>
+            </IconButton>
+           )}
+
+          {isAuthenticated() && isAuthenticated().user.role === 1 && (
+            <IconButton aria-label="show Dashboard" color="inherit">
+              <Link color="inherit"variant="body2" className={classes.link} href="/admin/dashboard" >
+                   <Typography className={classes.title} component="p">
+                    Dashboard
+                   </Typography>
+              </Link>
+            </IconButton>
+          )}
+
+         {!isAuthenticated() && (
+          <div>
+          <IconButton aria-label="show SignUp" color="inherit">
+            <Link color="inherit"variant="body2" className={classes.link} href="/signup" >
+                 <Typography className={classes.title} component="p">
+                  Sign Up
+                 </Typography>
+            </Link>
+          </IconButton>
+
+          <IconButton aria-label="show SignIn" color="inherit">
+            <Link color="inherit"variant="body2" className={classes.link} href="/signin" >
+                 <Typography className={classes.title} component="p">
+                  Sign In
+                 </Typography>
+            </Link>
+          </IconButton>
           </div>
+         )}
+
+        {isAuthenticated() && (
+          <IconButton aria-label="show SignIn" color="inherit">
+            <Link color="inherit"variant="body2" className={classes.link} >
+                 <Typography className={classes.title} component="p" onClick={() => signout(() => {history.push("/");})}>
+                  Sign Out
+                 </Typography>
+            </Link>
+          </IconButton>
+        )}
+
+          </div>
+
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -149,6 +280,8 @@ const PrimarySearchAppBar = () => {
               <MoreIcon />
             </IconButton>
           </div>
+
+
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

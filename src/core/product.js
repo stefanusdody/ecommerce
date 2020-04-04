@@ -9,8 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    textAlign: "center",
-    marginTop: theme.spacing(6),
+    alignItems: 'center',
+    marginTop: theme.spacing(10),
+    display: 'flex',
+    flexDirection: 'column',
   },
   cardRelation: {
     textAlign: "center",
@@ -59,10 +61,14 @@ const Product = (props) => {
 
   return(
     <Container>
-      <Grid container spacing={4} className={classes.card}>
+      <Grid container spacing={2} className={classes.card}>
       {product && product.description && (
         <Grid  item xs={12} sm={12} md={12}>
-          <CardProduct product={product} showViewProductButton={false}/>
+          <CardProduct
+           product={product}
+           showViewProductButton={false}
+           showViewAddCart={true}
+           />
         </Grid>
        )}
       </Grid>

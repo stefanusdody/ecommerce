@@ -93,68 +93,18 @@ const StickyFooter = () => {
     <div  className={classes.root}>
     <Container>
       <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={6}>
                <Typography href="#" variant="subtitle1" color="textSecondary">
-                TokoTukuAda.com menyediakan sejumlah fashion terkini untuk melengkapi gaya SPORTY kamu setiap hari.
+                TokoTukuAda.com menyediakan sejumlah bahan makanan terkini untuk kebutuhan kamu setiap hari.
                </Typography>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" color="textPrimary" gutterBottom>
-              LAYANAN
-            </Typography>
-
-            <li>
-              <Link href="/review-products" variant="subtitle1" color="textSecondary">
-                Review Product
-              </Link>
-            </li>
-
-              <li>
-                <Link href="/caraorder" variant="subtitle1" color="textSecondary">
-                  Cara Order
-                </Link>
-              </li>
-
-               <li>
-                 <Link href="/konfirmasi-pembayaran" variant="subtitle1" color="textSecondary">
-                   Konfirmasi Pembayaran
-                 </Link>
-               </li>
-
-                <li>
-                  <Link href="/Resi-Pengiriman" variant="subtitle1" color="textSecondary">
-                    Cek Resi Pengiriman
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/Hubungi-Kami" variant="subtitle1" color="textSecondary">
-                    Hubungi Kami
-                  </Link>
-                </li>
-
-                <br/>
-                <Typography variant="h6" color="textPrimary" gutterBottom>
-                  TEMUKAN KAMI
-                </Typography>
-
-                 <Link href="http://bit.ly/FBtokotukuada" variant="subtitle1" color="textSecondary">
-                      <FacebookIcon className={classes.sosmed}/>
-                  </Link>
-                 <Link href="http://bit.ly/Instagramtokotukuada" variant="subtitle1" color="textSecondary">
-                   <InstagramIcon className={classes.sosmed} />
-                 </Link>
-
-
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={5}>
+          <Grid item xs={12} sm={6} md={6}>
               <Typography variant="h6" color="textPrimary" gutterBottom>
                 ANDA BARU di TokoTukuAda.com?
               </Typography>
               <Typography href="#" variant="subtitle1" color="textSecondary">
-               Dapatkan Promo Menarik (ditambah dengan berita fashion terbaru) hanya dengan berlangganan newsletter kami.
+               Dapatkan Promo Menarik (ditambah dengan berita makanan terbaru) hanya dengan berlangganan newsletter kami.
               </Typography>
              <br/>
               <Typography href="#" variant="subtitle1" color="textSecondary">

@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   cardGrid: {
     height: '10%',
+    alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -41,11 +42,10 @@ const Cart = () => {
   const showItems = (items) => {
     return(
       <div>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.cardGrid}>
        {items.map((product, i) => (
         <Grid key={i} item xs={12} sm={12} md={12}>
          <CardProduct
-           className={classes.cardGrid}
            key={i}
            product={product}
            showViewProductButton={false}
