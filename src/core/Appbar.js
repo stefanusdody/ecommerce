@@ -166,7 +166,7 @@ const PrimarySearchAppBar = ({history}) => {
      <IconButton aria-label="show SignIn" color="inherit">
        <ExitToAppIcon />
      </IconButton>
-     <Link color="inherit"variant="body2" className={classes.link}>
+     <Link color="inherit"variant="body2" className={classes.link} href="/">
         <ListItemText
          onClick={() => signout(() => {history.push("/");})}
         >Sign Out</ListItemText>
@@ -258,7 +258,7 @@ const PrimarySearchAppBar = ({history}) => {
 
         {isAuthenticated() && (
           <IconButton aria-label="show SignIn" color="inherit">
-            <Link color="inherit"variant="body2" className={classes.link} >
+            <Link color="inherit"variant="body2" className={classes.link} href='/' >
                  <Typography className={classes.title} component="p" onClick={() => signout(() => {history.push("/");})}>
                   Sign Out
                  </Typography>

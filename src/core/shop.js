@@ -359,6 +359,7 @@ const Shop = () => {
                showViewDescriptions={false}
                showViewCategories={false}
                showAddedProduct={false}
+               showDetailProduct={false}
                />
             </Grid>
           ))}

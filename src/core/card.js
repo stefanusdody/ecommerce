@@ -60,6 +60,7 @@ const CardProduct = ({
       showViewProductButton = true,
       showViewDescriptions = true,
       showViewCategories = true,
+      showDetailProduct = true,
       cartUpdate= false,
       showRemoveProductButton=false
     }) => {
@@ -104,6 +105,23 @@ const CardProduct = ({
     );
   };
 
+  const showToDetailProduct = (showDetailProduct) => {
+    return (
+      showDetailProduct && (
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      )
+    );
+  };
+
   const showAddToChartButton = (showViewAddCart) => {
     return (
       showViewAddCart && (
@@ -121,10 +139,12 @@ const showStock = (quantity) => {
         Stock : {product.quantity} Pcs
       </Typography>
       :
-      <Typography variant="body2" color="textSecondary" component="p" className={classes.quantity}>
+      <Typography variant="body2" color="Secondary" component="p" className={classes.quantity}>
          Sold Out
       </Typography>
   }
+
+
 
 const showRemoveButton = (showRemoveProductButton) => {
     return(
@@ -211,10 +231,13 @@ return (
         title={product.name}
         subheader={moment(product.createdAt).fromNow()}
       />
-      {shouldRedirect(redirect)}
-     <ShowImage item={product} url="product"/>
 
+         {shouldRedirect(redirect)}
+     <ShowImage item={product} url="product"/>
      <CardContent>
+     <Typography variant="body2" color="textSecondary" component="p" className={classes.quantity}>
+       Stock : {product.quantity} Pcs
+     </Typography>
           {cartShowCartUpdateOptions(cartUpdate)}
           {showRemoveButton(showRemoveProductButton)}
       </CardContent>
@@ -222,6 +245,7 @@ return (
       <CardActions>
         {showViewButton(showViewProductButton)}
         {showAddToChartButton(showViewAddCart)}
+        {showToDetailProduct(showDetailProduct)}
       </CardActions>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
@@ -252,21 +276,6 @@ return (
             {product.description.substring(0,1000)}
           </Typography>
 
-          <Button
-           aria-controls="customized-menu"
-           aria-haspopup="true"
-           variant="contained"
-           color="primary"
-           className={classes.button}
-           href="/review-products"
-          >
-           Lihat Review Produk
-          </Button>
-
-
-          <Typography variant="body2" color="textSecondary" component="p">
-            Added on {moment(product.createdAt).fromNow()}
-          </Typography>
         </CardContent>
       </Collapse>
       </Card>

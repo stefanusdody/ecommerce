@@ -107,6 +107,7 @@ const Home = () => {
                   product={product}
                   showViewProductButton={true}
                   showViewAddCart={false}
+                  showDetailProduct={false}
                   />
              </Grid>
            ))}
@@ -124,6 +125,7 @@ const Home = () => {
                   product={product}
                   showViewProductButton={true}
                   showViewAddCart={false}
+                  showDetailProduct={false}
                   />
              </Grid>
            ))}
