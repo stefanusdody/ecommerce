@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  text: {
+   textAlign: "center",
+  }
 }));
 
 const SignIn = () => {
@@ -123,7 +126,7 @@ const SignIn = () => {
   );
 
   const showError = () => (
-    <Typography fontWeight="fontWeightBold" m={1} style={{display: error ? "" : "none"}} color="secondary">
+    <Typography fontWeight="fontWeightBold" m={1} style={{display: error ? "" : "none"}} color="secondary" className={classes.text}>
      {error}
     </Typography>
   );
