@@ -51,7 +51,6 @@ const SignIn = () => {
  });
 
  const { email, password, loading, error, redirectToReferrer } = values;
-
  const { user } = isAuthenticated()
 
   const handleChange = name => event => {
@@ -137,14 +136,17 @@ const SignIn = () => {
   );
 
   const redirectUser = () => {
-    if(redirectToReferrer) {
-      if(user && user.role === 1 ){
-        return <Redirect to="/admin/dashboard" />;
-      } else {
-        return <Redirect to="/user/dashboard" />;
-      }
-    }
-  };
+        if (redirectToReferrer) {
+            if (user && user.role === 1) {
+                return <Redirect to="/admin/dashboard" />;
+            } else {
+                return <Redirect to="/user/dashboard" />;
+            }
+        }
+        if (isAuthenticated()) {
+            return <Redirect to="/" />;
+        }
+    };
 
 
   return (
